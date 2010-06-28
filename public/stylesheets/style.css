@@ -1,4 +1,4 @@
-body { background-color: #fff; color: #333; }
+body { background-color: grey; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -10,6 +10,13 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
+}
+
+.container{
+	margin-top:10px;
+	background-color: #ffffff;
+	-moz-border-radius: 5px;
+    -webkit-border-radius: 5px;	
 }
 
 a { color: #000; }
