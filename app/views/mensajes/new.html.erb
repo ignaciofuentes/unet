@@ -1,0 +1,23 @@
+<h1>New mensaje</h1>
+
+<% form_for(@mensaje) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :receptor_id %><br />
+    <%= f.collection_select(:receptor_id, User.all, :id, :login) %>
+  </p>
+  <p>
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </p>
+  <p>
+    <%= f.label :contenido %><br />
+    <%= f.text_area :contenido %>
+  </p>
+
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', mensajes_path %>

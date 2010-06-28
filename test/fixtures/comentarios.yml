@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  autor: MyString
+  email: MyString
+  texto: MyText
+  comentable_id: 1
+  comentable_type: MyString
+
+two:
+  autor: MyString
+  email: MyString
+  texto: MyText
+  comentable_id: 1
+  comentable_type: MyString

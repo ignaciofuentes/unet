@@ -1,0 +1,32 @@
+<h1>Editar Actividad</h1>
+
+<% form_for(@actividad) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.tinymce :descripcion %>
+  </p>
+  <p>
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </p>
+  <p>
+    <%= f.label :direccion %><br />
+    <%= f.text_field :direccion %>
+  </p>
+	<p>
+    <%= f.label :grupo_estudiantil_id %><br />
+    <%=f.collection_select(:grupo_estudiantil_id,GrupoEstudiantil.all,:id, :nombre) %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @actividad %> |
+<%= link_to 'Back', actividades_path %>

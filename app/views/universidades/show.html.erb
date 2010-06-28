@@ -1,0 +1,27 @@
+<h3>
+  <%=h @universidad.nombre %>
+</h3>
+<%=image_tag @universidad.logo.url(:small)%>
+
+<div>
+<br />
+<b>Descripcion:</b>
+<%= @universidad.descripcion %>
+</div>
+<p>
+  <b>Direccion:</b>
+  <%=h @universidad.direccion %>
+</p>
+<p>
+  <b>Estado:</b>
+  <%=h @universidad.estado.nombre %>
+</p>
+Grupos Estudiantiles 
+<table>
+<% @universidad.grupos_estudiantiles.each do |grupo_estudiantil| %>
+<tr><td><%=link_to grupo_estudiantil.nombre, grupo_estudiantil%></td></tr>
+<%end%>
+</table>
+
+<%= link_authorized :edit, @universidad, 'Editar', edit_universidad_path(@universidad) %> 
+<%= link_to 'Listado', universidades_path %>

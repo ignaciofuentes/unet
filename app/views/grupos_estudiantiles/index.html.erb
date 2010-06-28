@@ -1,0 +1,52 @@
+<% content_for :head do %>  
+<%= javascript_include_tag 'jquery.dataTables' %>  
+<%= stylesheet_link_tag 'demo_table_jui' %>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('#grupos_estudiantiles').dataTable({
+	 "bJQueryUI": true,
+		"aoColumns": [
+			null,
+             { "bSortable": false },
+            null,
+            null,
+           { "bSortable": false }
+        ],
+                     "sPaginationType": "full_numbers",
+                     "oLanguage": {
+					 "sUrl": "dataTables.spanish.txt"
+			}           
+	});
+});
+</script>
+ <% end %>
+<h1>Grupos Estudiantiles</h1>
+
+<table id="grupos_estudiantiles">
+<thead>
+  <tr>
+    <th>Nombre</th>
+	<th>Logo</th>
+    <th>Ano</th>
+    <th>Universidad</th>
+	<th></th>
+  </tr>
+</thead>
+<tbody>
+<% @grupos_estudiantiles.each do |grupo_estudiantil| %>
+  <tr>
+    <td><%=link_to grupo_estudiantil.nombre, grupo_estudiantil %></td>
+	<td><%=link_to image_tag (grupo_estudiantil.logo.url(:mini)), grupo_estudiantil %></td>
+    <td><%=h grupo_estudiantil.ano %></td>
+    <td><%=h grupo_estudiantil.universidad.nombre %></td>
+    <td>
+	<%=link_authorized :edit, grupo_estudiantil,'<span class="ui-icon ui-icon-pencil" title="Editar"></span>', edit_grupo_estudiantil_path(grupo_estudiantil)%> 
+	<%= link_authorized :destroy, grupo_estudiantil, '<span class="ui-icon ui-icon-trash" title="Eliminar"></span>', grupo_estudiantil %>
+	</td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<br />
+<%= link_authorized :new, GrupoEstudiantil.new, 'Nuevo Grupo Estudiantil', new_grupo_estudiantil_path %>

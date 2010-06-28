@@ -1,0 +1,28 @@
+<p>
+  <b>Autor:</b>
+  <%=h @comentario.autor %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @comentario.email %>
+</p>
+
+<p>
+  <b>Texto:</b>
+  <%=h @comentario.texto %>
+</p>
+
+<p>
+  <b>Comentable:</b>
+  <%=h @comentario.comentable_id %>
+</p>
+
+<p>
+  <b>Comentable type:</b>
+  <%=h @comentario.comentable_type %>
+</p>
+
+
+<%= link_to 'Edit', edit_comentario_path(@comentario) %> |
+<%= link_to 'Back', comentarios_path %>

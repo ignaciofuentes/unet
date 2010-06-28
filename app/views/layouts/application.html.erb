@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<title><%= @page_title %></title>
+	<%= stylesheet_link_tag 'blueprint/screen' %>
+	<%= stylesheet_link_tag 'style' %>
+	<%= stylesheet_link_tag 'css/ui-lightness/jquery-ui-1.8.2.custom' %>
+	<%= javascript_include_tag "js/jquery-1.4.2.min", "js/jquery-ui-1.8.2.custom.min","application" %>
+	<%= init_tinymce_hammer_if_required %>
+	<%= yield :head %> 
+</head>
+<body>
+	<div class="container">
+		<div class="span-24">
+			 <div><%=link_to  image_tag("unet-blanco.png"), root_path%></div>
+		</div>		
+	<div id="user" class="span-24">	
+		<% if current_user %>
+		<%=link_to "Logout", logout_path %>,	
+		<%=link_to current_user.login, edit_user_path(current_user.login) %>
+		<%else%>
+		<%=link_to "Log in", login_path%>
+		<%end%>	
+		<p style="color: green"><%= flash[:notice] %></p>
+	</div>		
+		<div class="span-6" id="accordion">
+			<h3><a href="#">Actividades</a></h3>
+			<div>
+				<ul>
+					<% if permitted_to? :create, Actividad.new %>				
+					<li><%=link_to "Nueva", new_actividad_url()%></li>
+					<%end%>
+					<% if permitted_to? :edit, Actividad.new %>
+					<li><%=link_to "Lista", actividades_url()%></li>
+					<%end%>		
+				</ul>
+			</div>
+			<h3><a href="#">Grupos Estudiantiles</a></h3>
+			<div>
+				<ul>
+					<% if permitted_to? :create, GrupoEstudiantil.new %>				
+					<li><%=link_to "Nuevo", new_grupo_estudiantil_url()%></li>
+					<%end%>
+					<li><%=link_to "Lista", grupos_estudiantiles_url()%></li>	
+				</ul>
+			</div>
+			<h3><a href="#">Mensajes</a></h3>
+			<div>
+				<ul>
+					<% if permitted_to? :create, Mensaje.new %>				
+					<li><%=link_to "Nuevo", new_mensaje_url()%></li>
+					<%end%>
+					<% if permitted_to? :recibidos, Mensaje.new %>
+					<li><%=link_to "Recibidos", recibidos_mensajes_url()%></li>
+					<%end%>		
+				</ul>
+			</div>
+			<h3><a href="#">Foro</a></h3>
+			<div>
+				<ul>
+					<% if permitted_to? :create, Mensaje.new %>				
+					<li><%=link_to "Nuevo", new_mensaje_url()%></li>
+					<%end%>
+					<% if permitted_to? :recibidos, GrupoEstudiantil.new %>
+					<li><%=link_to "Recibidos", recibidos_mensajes_url()%></li>
+					<%end%>		
+				</ul>
+			</div>
+			<h3><a href="#">Universidades</a></h3>
+			<div>
+				<ul>
+					<% if permitted_to? :create, Universidad.new %>				
+					<li><%=link_to "Nueva", new_universidad_url()%></li>
+					<%end%>
+					<li><%=link_authorized :index,:universidades, "Lista", universidades_url()%></li>
+				</ul>
+			</div>
+			<h3><a href="#">Usuarios</a></h3>
+			<div>
+				<ul>
+					<% if permitted_to? :create, User.new %>				
+					<li><%=link_to "Nueva", new_user_path()%></li>
+					<%end%>
+					<% if permitted_to? :edit, User.new %>
+					<li><%=link_to "Editar", users_path()%></li>
+					<%end%>		
+				</ul>
+			</div>
+			
+		</div>
+		<div class="span-18 last">
+			<%= yield %>			
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<% div_for actividad do %>
+<h3><%= link_to actividad.titulo, actividad %></h3>
+(<%=h actividad.fecha %>)
+<% if permitted_to? :edit, actividad %>
+<%= link_to 'Editar', edit_actividad_path(actividad) %> |
+<%= link_to 'Eliminar', actividad, :confirm => 'Esta seguro?', :method => :delete %>
+<%end%>
+<div>
+<%= actividad.descripcion %>
+</div>
+<p>
+  <b>Direccion:</b>
+  <%=h actividad.direccion %>
+</p>
+<p>
+  <b>Grupo Estudiantil:</b>
+  <%=h actividad.grupo_estudiantil.nombre %>
+</p>
+<%end%>

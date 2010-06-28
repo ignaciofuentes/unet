@@ -1,0 +1,19 @@
+<%= form.label :login %><br />
+<%= form.text_field :login %><br />
+<br />
+<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
+<%= form.password_field :password %><br />
+<br />
+<%= form.label :password_confirmation %><br />
+<%= form.password_field :password_confirmation %><br />
+<br />
+<%= form.label :email %><br />
+<%= form.text_field :email %><br />
+<br >
+<% if current_user.admin? %>
+<%= form.label :roles %><br />
+<%= form.collection_select(:role_ids,Role.all,:id,:name) %><br >
+<br />
+<%= form.label :grupo_estudiantil %><br />
+<%= form.collection_select(:grupo_estudiantil_ids,GrupoEstudiantil.all,:id,:nombre) %><br >
+<%end%>

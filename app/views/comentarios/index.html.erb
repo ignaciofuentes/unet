@@ -1,0 +1,13 @@
+<h1>Comentarios</h1>
+
+<%= render :partial =>@comentarios%>
+
+<h2>Nuevo Comentario</h2>
+
+<% form_for [@comentable, Comentario.new] do |f|%>
+<p>
+<%= f.label :texto%><br />
+<%= f.text_area :texto%><br />
+</p>
+<p><%= f.submit "Enviar"%></p>
+<% end %>

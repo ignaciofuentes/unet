@@ -1,0 +1,22 @@
+<h3><%=h @grupo_estudiantil.nombre %></h3>
+<%=image_tag @grupo_estudiantil.logo.url(:small)%>
+
+<div>
+<br />
+<b>Descripcion:</b>
+<%= @grupo_estudiantil.descripcion %>
+</div>
+
+<p>
+  <b>Ano:</b>
+  <%=h @grupo_estudiantil.ano %>
+</p>
+
+<p>
+  <b>Universidad:</b>
+  <%=h @grupo_estudiantil.universidad.nombre %>
+</p>
+
+
+<%= link_authorized :edit,@grupo_estudiantil, 'Editar', edit_grupo_estudiantil_path(@grupo_estudiantil) %> |
+<%= link_to 'Listado', grupos_estudiantiles_path %>

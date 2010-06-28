@@ -1,0 +1,26 @@
+<h1>Listing mensajes</h1>
+
+<table>
+  <tr>
+    <th>Titulo</th>
+    <th>Contenido</th>
+    <th>Emisor</th>
+    <th>Receptor</th>
+  </tr>
+
+<% @mensajes.each do |mensaje| %>
+  <tr>
+    <td><%=h mensaje.titulo %></td>
+    <td><%=h mensaje.contenido %></td>
+    <td><%=h mensaje.emisor.login %></td>
+    <td><%=h mensaje.receptor.login %></td>
+    <td><%= link_to 'Show', mensaje %></td>
+    <td><%= link_to 'Edit', edit_mensaje_path(mensaje) %></td>
+    <td><%= link_to 'Destroy', mensaje, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New mensaje', new_mensaje_path %>

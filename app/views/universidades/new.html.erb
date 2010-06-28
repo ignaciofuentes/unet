@@ -1,0 +1,30 @@
+<h1>Nueva universidad</h1>
+
+<% form_for @universidad, :html =>{ :multipart =>true } do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+  <%= f.label :logo %><br />
+<%=f.file_field :logo%>  
+  </p>
+    <p>
+  <%= f.label :descripcion %><br />
+<%=f.tinymce :descripcion%>  
+  </p>
+  <p>
+    <%= f.label :direccion %><br />
+    <%= f.text_field :direccion %>
+  </p>
+  <p>
+    <%= f.label :estado_id %><br />
+    <%=f.collection_select(:estado_id,Estado.all,:id, :nombre) %>
+  </p>
+  <p>
+    <%= f.submit 'Crear' %>
+  </p>
+<% end %>
+
+<%= link_to 'Listado', universidades_path %>
