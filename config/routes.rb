@@ -1,9 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :noticias
-
   
-
-
     map.resources :mensajes, :collection => { :enviados => :get, :recibidos => :get }
 
   
@@ -13,6 +9,7 @@ ActionController::Routing::Routes.draw do |map|
     map.resources :grupos_estudiantiles, :path_names => { :new => 'nueva', :edit => 'editar' }
     map.resources :universidades, :path_names => { :new => 'nueva', :edit => 'editar' }
     map.resources :actividades, :has_many => :comentarios, :path_names => { :new => 'nueva', :edit => 'editar' }
+    map.resources :noticias, :has_many => :comentarios, :path_names => { :new => 'nueva', :edit => 'editar' }
     map.resources :user_sessions, :as =>"cuenta"
     map.resources :users, :as => 'usuarios', :path_names => {:new=>'nuevo', :edit => 'editar' }    
     map.register '/register/:activation_code', :controller => 'activations', :action => 'new'
