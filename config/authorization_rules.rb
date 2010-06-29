@@ -10,6 +10,12 @@ authorization do
   has_permission_on :actividades, :to=>[:index,:new, :show, :create, :edit, :update, :destroy]    
   end
   
+    role :junior do
+  has_permission_on :users, :to=>[:index,:new, :show]
+  has_permission_on :grupos_estudiantiles, :to=>[:index, :show] 
+  has_permission_on :actividades, :to=>[:index,:new, :show, :create, :edit, :update, :destroy]    
+  end
+  
   role :guest do
     has_permission_on :actividades, :universidades, :grupos_estudiantiles, :to=>[:index, :show] 
   end

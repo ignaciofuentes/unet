@@ -9,16 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100626023637) do
+ActiveRecord::Schema.define(:version => 20100629162347) do
 
   create_table "actividades", :force => true do |t|
     t.string   "titulo"
     t.text     "descripcion"
     t.date     "fecha"
     t.string   "direccion"
-    t.integer  "grupo_estudiantil_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "estado_id"
+    t.integer  "grupo_estudiantil_id"
   end
 
   create_table "assignments", :force => true do |t|
@@ -66,18 +67,6 @@ ActiveRecord::Schema.define(:version => 20100626023637) do
     t.datetime "updated_at"
   end
 
-  create_table "permissions", :force => true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "permissions_roles", :id => false, :force => true do |t|
-    t.integer "permission_id"
-    t.integer "role_id"
-  end
-
   create_table "representantes", :force => true do |t|
     t.integer  "user_id",              :null => false
     t.integer  "grupo_estudiantil_id", :null => false
@@ -121,7 +110,12 @@ ActiveRecord::Schema.define(:version => 20100626023637) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role_id"
+    t.boolean  "verified",            :default => false
     t.boolean  "active",              :default => false, :null => false
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "cedula"
   end
 
 end

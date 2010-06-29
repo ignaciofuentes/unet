@@ -1,7 +1,49 @@
 <h1>Registro de Usuario</h1>
 <% form_for @user do |f| %>
   <%= f.error_messages %>
-  <%= render :partial => "form", :object => f %>
-  <%= f.submit "Register" %>
+
+  <p>
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+	<%= f.label :password, f.object.new_record? ? nil : "Change password" %><br />
+	<%= f.password_field :password %><br />
+	</p>
+	<p>
+	<%= f.label :password_confirmation %><br />
+	<%= f.password_field :password_confirmation %><br />
+	</p>
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>	
+  </p>
+  <p>
+    <%= f.label :apellido %><br />
+    <%= f.text_field :apellido %>	
+  </p>
+  <p>
+    <%= f.label :cedula %><br />
+    <%= f.text_field :cedula %>	
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>	
+  </p>
+  <p>
+  <%= f.label :role_ids, "Roles" %><br />
+<%= f.collection_select(:role_ids,Role.all,:id,:name) %><br />
+</p>
+  <p>
+  <%= label_tag :universidad_universidad_id, "Universidades" %><br />
+<%= collection_select(:universidad, :universidad_id,Universidad.all,:id,:nombre) %><br />
+</p>
+<p>
+<%= f.label :grupo_estudiantil_ids, "Grupo Estudiantil" %><br />
+<%= f.collection_select(:grupo_estudiantil_ids,GrupoEstudiantil.all,:id,:nombre) %>
+</p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
 <% end %>
-<br >
+<br />

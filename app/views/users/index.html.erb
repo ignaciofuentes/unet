@@ -26,8 +26,8 @@ $(document).ready(function() {
 <table id="usuarios">
 <thead>
   <tr>
-    <th>Nombre</th>
-	<th>Logo</th>
+    <th>Login</th>
+	<th>Nombre</th>
     <th>Email</th>
     <th>Rol</th>
 	<th></th>
@@ -37,10 +37,12 @@ $(document).ready(function() {
 <% @usuarios.each do |usuario| %>
   <tr>
     <td><%=link_to usuario.login, usuario %></td>
-	<td></td>
+	<td><%="#{usuario.nombre} #{usuario.apellido}"%></td>
     <td><%=h usuario.email %></td>
     <td><%=h usuario.roles.first.name %></td>
     <td>
+	<%=link_authorized :edit, usuario,'<span class="ui-icon ui-icon-pencil" title="Editar"></span>', edit_user_path(usuario)%> 
+	<%= link_authorized :destroy, usuario, '<span class="ui-icon ui-icon-trash" title="Eliminar"></span>', usuario %>
 	</td>
   </tr>
 <% end %>

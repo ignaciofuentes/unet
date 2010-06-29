@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :mensajes_enviados, :class_name => 'Mensaje', :foreign_key => 'emisor_id'
   has_many :assignments
   has_many :roles, :through =>:assignments
-  attr_accessible :login, :email, :password, :password_confirmation, :openid_identifier, :role_ids, :grupo_estudiantil_ids
+  attr_accessible :login, :email,:nombre,:apellido, :password, :password_confirmation, :openid_identifier, :role_ids, :grupo_estudiantil_ids
 
   def active?
     active

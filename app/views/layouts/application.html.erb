@@ -21,7 +21,7 @@
 	<div id="user" class="span-24">	
 		<% if current_user %>
 		<%=link_to "Logout", logout_path %>,	
-		<%=link_to current_user.login, edit_user_path(current_user.login) %>
+		<%=link_to current_user.login, current_user %>
 		<%else%>
 		<%=link_to "Log in", login_path%>
 		<%end%>	
