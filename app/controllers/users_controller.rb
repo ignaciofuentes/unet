@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+
+def index
+@usuarios = User.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @usuarios }
+    end
+end
   def new
     @user = User.new     
   end
@@ -29,7 +38,7 @@ class UsersController < ApplicationController
 
   
   def show
-    @user = @current_user
+@user=User.find(params[:id])
   end
  
   def edit
