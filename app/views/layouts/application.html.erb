@@ -39,6 +39,17 @@
 					<%end%>		
 				</ul>
 			</div>
+			<h3><a href="#">Noticias</a></h3>
+			<div>
+				<ul>
+					<% if permitted_to? :create, Noticia.new %>				
+					<li><%=link_to "Nueva", new_noticia_url()%></li>
+					<%end%>
+					<% if permitted_to? :edit, Noticia.new %>
+					<li><%=link_to "Lista", noticias_url()%></li>
+					<%end%>		
+				</ul>
+			</div>
 			<h3><a href="#">Grupos Estudiantiles</a></h3>
 			<div>
 				<ul>

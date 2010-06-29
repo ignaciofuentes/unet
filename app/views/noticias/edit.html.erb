@@ -1,0 +1,24 @@
+<h1>Editing noticia</h1>
+
+<% form_for(@noticia) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :titulo %><br />
+    <%= f.text_field :titulo %>
+  </p>
+  <p>
+    <%= f.label :descripcion %><br />
+    <%= f.text_area :descripcion %>
+  </p>
+  <p>
+    <%= f.label :grupo_estudiantil_id %><br />
+    <%= f.text_field :grupo_estudiantil_id %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @noticia %> |
+<%= link_to 'Back', noticias_path %>

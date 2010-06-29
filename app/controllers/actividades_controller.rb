@@ -28,7 +28,6 @@ filter_resource_access
 
   # GET /actividades/1/edit
   def edit
-    @user = @current_user
     @actividad = Actividad.find(params[:id])
   end
 

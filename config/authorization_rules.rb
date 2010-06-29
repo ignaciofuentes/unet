@@ -1,6 +1,6 @@
 authorization do
   role :admin do 
-  has_permission_on :actividades,:grupos_estudiantiles,:mensajes,:users, :universidades,
+  has_permission_on :actividades,:noticias, :grupos_estudiantiles,:mensajes,:users, :universidades,
    :to=>[:index,:new, :show, :create, :edit, :update, :destroy]  
   end
   

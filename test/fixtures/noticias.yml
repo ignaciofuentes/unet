@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  titulo: 
+  descripcion: MyText
+  grupo_estudiantil_id: 1
+
+two:
+  titulo: 
+  descripcion: MyText
+  grupo_estudiantil_id: 1

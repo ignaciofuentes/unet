@@ -1,0 +1,18 @@
+<p>
+  <b>Titulo:</b>
+  <%=h @noticia.titulo %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%=h @noticia.descripcion %>
+</p>
+
+<p>
+  <b>Grupo estudiantil:</b>
+  <%=h @noticia.grupo_estudiantil_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_noticia_path(@noticia) %> |
+<%= link_to 'Back', noticias_path %>
