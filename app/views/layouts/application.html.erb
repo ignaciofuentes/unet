@@ -96,7 +96,7 @@
 					<% if permitted_to? :create, User.new %>				
 					<li><%=link_to "Nueva", new_user_path()%></li>
 					<%end%>
-					<% if permitted_to? :edit, User.new %>
+					<% if permitted_to? :index, User.new %>
 					<li><%=link_to "Editar", users_path()%></li>
 					<%end%>		
 				</ul>
