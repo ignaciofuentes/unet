@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   
-    map.resources :mensajes, :collection => { :enviados => :get, :recibidos => :get }
+    map.resources :mensajes
 
   
     map.login "login", :controller => "user_sessions", :action => "new"

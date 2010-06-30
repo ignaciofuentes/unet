@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
   acts_as_authentic
   #validate :rol_debe_ser_igual_o_menor_al_del_creador
-  has_many :representantes  
-  has_many :grupos_estudiantiles, :through => :representantes
+  belongs_to :grupo_estudiantil
+  
   has_many :mensajes_recibidos, :class_name => 'Mensaje', :foreign_key => 'receptor_id'
   has_many :mensajes_enviados, :class_name => 'Mensaje', :foreign_key => 'emisor_id'
   has_many :assignments
   has_many :roles, :through =>:assignments
-  attr_accessible :login, :email,:nombre,:apellido, :password, :password_confirmation, :openid_identifier, :role_ids, :grupo_estudiantil_ids
+  attr_accessible :login, :email,:nombre,:apellido, :password, :password_confirmation, :openid_identifier, :role_ids, :grupo_estudiantil_id
 
   def active?
     active
@@ -27,14 +27,6 @@ class User < ActiveRecord::Base
       Notifier.deliver_activation_confirmation(self)
     end
 	
-	def admin?
-	assignments.each do |a|
-	if a.role.name=='admin'
-	return true
-	end
-	end
-	return false
-	end
 
 def role_symbols
   roles.map do |role|
