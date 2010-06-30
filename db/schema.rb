@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100629222301) do
+ActiveRecord::Schema.define(:version => 20100630013210) do
 
   create_table "actividades", :force => true do |t|
     t.string   "titulo"
@@ -123,8 +123,11 @@ ActiveRecord::Schema.define(:version => 20100629222301) do
     t.string   "nombre"
     t.string   "apellido"
     t.string   "cedula"
-    t.integer  "role_id"
     t.integer  "grupo_estudiantil_id"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
 end
