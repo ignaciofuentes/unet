@@ -2,7 +2,11 @@ class MensajesController < ApplicationController
   # GET /mensajes
   # GET /mensajes.xml
   def index
-    redirect_to recibidos_mensajes_url
+	if params[:bandeja]=="Recibidos"
+    @mensajes = current_user.mensajes_recibidos
+	else
+	@mensajes = current_user.mensajes_enviados
+	end
     end
 
 
@@ -21,7 +25,7 @@ class MensajesController < ApplicationController
   # GET /mensajes/new.xml
   def new
     @mensaje = Mensaje.new
-
+	@mensaje.receptor_login=params[:receptor]
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @mensaje }
@@ -37,16 +41,13 @@ class MensajesController < ApplicationController
   # POST /mensajes.xml
   def create
     @mensaje = Mensaje.new(params[:mensaje])
-    @mensaje.emisor_id=current_user.id
-    respond_to do |format|
+    @mensaje.emisor=current_user
       if @mensaje.save
-        flash[:notice] = 'Mensaje was successfully created.'
-        format.html { redirect_to(@mensaje) }
-        format.xml  { render :xml => @mensaje, :status => :created, :location => @mensaje }
+        flash[:notice] = 'Mensaje was successfully created.' 
+		redirect_to @mensaje
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @mensaje.errors, :status => :unprocessable_entity }
-      end
+	  flash[:error] = 'Mensaje no se pudo enviar.'
+        render :action => "new"
     end
   end
 
@@ -77,13 +78,6 @@ class MensajesController < ApplicationController
       format.html { redirect_to(mensajes_url) }
       format.xml  { head :ok }
     end
-  end
-  
-  def enviados
-    @mensajes = current_user.mensajes_enviados
-  end
-  def recibidos
-    @mensajes = current_user.mensajes_recibidos
   end
   
 end

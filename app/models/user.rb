@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
   has_attached_file :photo, :styles => { :small => "180x180>" },
   :url => "/uploads/users/:attachment/:id/:style/:basename.:extension",
   :path => ":rails_root/public/uploads/users/:attachment/:id/:style/:basename.:extension"
-  validates_attachment_presence :photo
   validates_attachment_size :photo,  :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
   
@@ -38,6 +37,7 @@ def role_symbols
     role.name.underscore.to_sym
   end
 end
+
 
 def rol_debe_ser_igual_o_menor_al_del_creador
   if(1==1)

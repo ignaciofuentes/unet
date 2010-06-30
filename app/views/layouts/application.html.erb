@@ -26,6 +26,7 @@
 		<%=link_to "Log in", login_path%>
 		<%end%>	
 		<p style="color: green"><%= flash[:notice] %></p>
+		<p style="color: red"><%= flash[:error] %></p>
 	</div>		
 		<div class="span-6" id="accordion">
 			<h3><a href="#">Actividades</a></h3>
@@ -65,8 +66,9 @@
 					<% if permitted_to? :create, Mensaje.new %>				
 					<li><%=link_to "Nuevo", new_mensaje_url()%></li>
 					<%end%>
-					<% if permitted_to? :recibidos, Mensaje.new %>
-					<li><%=link_to "Recibidos", recibidos_mensajes_url()%></li>
+					<% if permitted_to? :index %>
+					<li><%=link_to "Enviados", mensajes_path({:bandeja=>"Enviados"})%></li>
+					<li><%=link_to "Recibidos", mensajes_path({:bandeja=>"Recibidos"})%></li>
 					<%end%>		
 				</ul>
 			</div>

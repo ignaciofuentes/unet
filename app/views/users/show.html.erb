@@ -5,7 +5,10 @@
   <b>Login:</b>
   <%=h @user.login %>
 </p>
-
+<p>
+  <b>Enviar mensaje:</b>
+  <%= link_to @user.login, new_mensaje_path({:receptor=>@user.login}) %>
+</p>
 <p>
   <b>Email:</b>
   <%=h @user.email %>

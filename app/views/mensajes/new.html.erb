@@ -1,10 +1,10 @@
 <h1>New mensaje</h1>
-
-<% form_for(@mensaje) do |f| %>
+<%=@login%>
+<% form_for @mensaje do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.label :receptor_id %><br />
-    <%= f.collection_select(:receptor_id, User.all, :id, :login) %>
+    <%= f.label :receptor_login %><br />
+    <%= f.text_field :receptor_login%>
   </p>
   <p>
     <%= f.label :titulo %><br />
