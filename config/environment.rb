@@ -38,7 +38,6 @@ Rails::Initializer.run do |config|
   config.gem "ambethia-smtp-tls", :lib => "smtp-tls", :source => "http://gems.github.com/"
   config.gem "declarative_authorization", :source => "http://gemcutter.org"
   config.gem "paperclip", :version => '2.3.1.1'
-  config.gem 'wysihat-engine', :source => 'http://gemcutter.org'
 
 
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
