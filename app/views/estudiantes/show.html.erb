@@ -1,0 +1,33 @@
+<p>
+  <b>Nombre:</b>
+  <%=h @estudiante.nombre %>
+</p>
+
+<p>
+  <b>Inicial segundo:</b>
+  <%=h @estudiante.inicial_segundo %>
+</p>
+
+<p>
+  <b>Apellido:</b>
+  <%=h @estudiante.apellido %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @estudiante.email %>
+</p>
+
+<p>
+  <b>Universidad:</b>
+  <%=h @estudiante.universidad_id %>
+</p>
+
+<p>
+  <b>Telefono:</b>
+  <%=h @estudiante.telefono %>
+</p>
+
+
+<%= link_to 'Edit', edit_estudiante_path(@estudiante) %> |
+<%= link_to 'Back', estudiantes_path %>

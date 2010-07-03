@@ -1,0 +1,45 @@
+<%content_for :head do%>
+<script type="text/javascript">
+	$(function() {
+		$("#estudiante_universidad_id").autocomplete({
+			source: "../universidades.json",
+			minLength: 2
+		});
+	});
+	</script>
+	<% end %>
+<h1>New estudiante</h1>
+
+<% form_for(@estudiante) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.label :inicial_segundo %><br />
+    <%= f.text_field :inicial_segundo %>
+  </p>
+  <p>
+    <%= f.label :apellido %><br />
+    <%= f.text_field :apellido %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :universidad_id %><br />
+    <%= f.text_field :universidad_id %>
+  </p>
+  <p>
+    <%= f.label :telefono %><br />
+    <%= f.text_field :telefono %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', estudiantes_path %>

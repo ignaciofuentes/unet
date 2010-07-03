@@ -5,11 +5,6 @@ class UniversidadesController < ApplicationController
 filter_resource_access
   def index
     @universidades = Universidad.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @universidades }
-    end
   end
 
   # GET /universidades/1

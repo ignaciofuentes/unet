@@ -1,0 +1,30 @@
+<h1>Listing estudiantes</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Inicial segundo</th>
+    <th>Apellido</th>
+    <th>Email</th>
+    <th>Universidad</th>
+    <th>Telefono</th>
+  </tr>
+
+<% @estudiantes.each do |estudiante| %>
+  <tr>
+    <td><%=h estudiante.nombre %></td>
+    <td><%=h estudiante.inicial_segundo %></td>
+    <td><%=h estudiante.apellido %></td>
+    <td><%=h estudiante.email %></td>
+    <td><%=h estudiante.universidad_id %></td>
+    <td><%=h estudiante.telefono %></td>
+    <td><%= link_to 'Show', estudiante %></td>
+    <td><%= link_to 'Edit', edit_estudiante_path(estudiante) %></td>
+    <td><%= link_to 'Destroy', estudiante, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New estudiante', new_estudiante_path %>
