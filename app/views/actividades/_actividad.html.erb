@@ -1,18 +1,20 @@
-<% div_for actividad do %>
-<h3><%= link_to actividad.titulo, actividad %></h3>
-(<%=h actividad.fecha %>)
+<% div_for actividad, :class=>"content" do %>
+<h3><%= link_to actividad.titulo, actividad, :class => "entry_title" %></h3>
+<h2 class ="entry-utility">
+<%=h actividad.fecha%>
 <% if permitted_to? :edit, actividad %>
 <%= link_to 'Editar', edit_actividad_path(actividad) %> |
 <%= link_to 'Eliminar', actividad, :confirm => 'Esta seguro?', :method => :delete %>
 <%end%>
-<div>
+</h2>
+<div class ="entry-content">
 <%= actividad.descripcion %>
 </div>
-<p>
+<p class = "entry-meta">
   <b>Direccion:</b>
   <%=h actividad.direccion %>
 </p>
-<p>
+<p class = "entry-meta">
   <b>Grupo Estudiantil:</b>
   <%=h actividad.grupo_estudiantil.nombre %>
 </p>
