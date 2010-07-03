@@ -16,10 +16,9 @@ ActiveRecord::Schema.define(:version => 20100703193705) do
     t.text     "descripcion"
     t.date     "fecha"
     t.string   "direccion"
+    t.integer  "grupo_estudiantil_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "estado_id"
-    t.integer  "grupo_estudiantil_id"
   end
 
   create_table "assets", :force => true do |t|
@@ -102,6 +101,26 @@ ActiveRecord::Schema.define(:version => 20100703193705) do
     t.string   "titulo"
   end
 
+  create_table "permissions", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions_roles", :id => false, :force => true do |t|
+    t.integer "permission_id"
+    t.integer "role_id"
+  end
+
+  create_table "prints", :force => true do |t|
+    t.string   "image_file_name"
+    t.string   "image_file_size"
+    t.string   "image_content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "representantes", :force => true do |t|
     t.integer  "user_id",              :null => false
     t.integer  "grupo_estudiantil_id", :null => false
@@ -145,7 +164,6 @@ ActiveRecord::Schema.define(:version => 20100703193705) do
     t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "verified",             :default => false
     t.boolean  "active",               :default => false, :null => false
     t.string   "nombre"
     t.string   "apellido"
@@ -155,6 +173,14 @@ ActiveRecord::Schema.define(:version => 20100703193705) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "videos", :force => true do |t|
+    t.string   "original_file_name"
+    t.string   "original_file_size"
+    t.string   "original_content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "wysihat_files", :force => true do |t|
