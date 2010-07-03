@@ -1,3 +1,13 @@
+<% content_for :head do%>
+<%= javascript_include_tag "jquery.dependent" %>
+<script type="text/javascript">
+$(function(){
+$('#user_universidad_id').dependent({ parent: 'user_estado_id', group: 'selectable' });
+$('#user_grupo_estudiantil_id').dependent({ parent: 'user_universidad_id', group: 'selectable' });
+})
+</script>
+<% end %>
+
 <h1>Registro de Usuario</h1>
 <% form_for @user, :html=> {:multipart=>true}  do |f| %>
   <%= f.error_messages %>
@@ -39,13 +49,17 @@
   <%= f.label :role_ids, "Roles" %><br />
 <%= f.collection_select(:role_ids,Role.all,:id,:name) %><br />
 </p>
+<p>
+  <%= label_tag :universidad_universidad_id, "Estados" %><br />
+<%= collection_select_with_title("user",:estado_id,Estado.all, :id, :nombre) %><br />
+</p>
   <p>
   <%= label_tag :universidad_universidad_id, "Universidades" %><br />
-<%= collection_select(:universidad, :universidad_id,Universidad.all,:id,:nombre) %><br />
+<%= collection_select_with_title_and_class("user",:universidad_id,Universidad.all, :id, :nombre, :estado, :nombre) %><br />
 </p>
 <p>
 <%= f.label :grupo_estudiantil_id %><br />
-<%= f.collection_select(:grupo_estudiantil_id,GrupoEstudiantil.all,:id,:nombre) %>
+<%= collection_select_with_title_and_class("user", :grupo_estudiantil_id,GrupoEstudiantil.all,:id,:nombre, :universidad, :nombre) %>
 </p>
 <%end%>
   <p>
