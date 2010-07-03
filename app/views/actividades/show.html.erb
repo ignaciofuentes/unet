@@ -1,21 +1,24 @@
 <%= render(:partial => @actividad)%>
 <hr />
-<h2>Comentarios</h2>
-<%= render :partial =>@actividad.comentarios%>
-<hr />
-<h2>Nuevo Comentario</h2>
-<% form_for [@actividad, Comentario.new] do |f|%>
-<p>
-<%= f.label :autor%><br />
-<%= f.text_field :autor%><br />
-</p>
-<p>
-<%= f.label :email%><br />
-<%= f.text_field :email%><br />
+<div id="comments">
+	<h3 id="comments-title">Comentarios</h2>
+	<%= render :partial =>@actividad.comentarios%>
+	<hr />
+	<div id="respond">
+		<h2>Nuevo Comentario</h2>
+		<% form_for [@actividad, Comentario.new] do |f|%>
+		<p>
+		<%= f.label :autor%><br />
+		<%= f.text_field :autor%><br />
+	</p>
+	<p>
+	<%= f.label :email%><br />
+	<%= f.text_field :email%><br />
 </p>
 <p>
 <%= f.label :texto%><br />
 <%= f.text_area :texto%><br />
 </p>
 <p><%= f.submit "Enviar"%></p>
+</div>
 <% end %>

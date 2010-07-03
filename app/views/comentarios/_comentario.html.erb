@@ -1,5 +1,10 @@
 <% div_for comentario do %>
 	<hr />
-	<b><%=comentario.autor%></b> dice: <br /><br />
-	<%=simple_format comentario.texto%>
+	<div class ="comment-author">
+	<cite class= "fn"><%=comentario.autor%></cite>
+	<span class= "says"> dice: </span>
+	</div>
+	<div class= "comment-body">
+	<%=h comentario.texto%>
+	</div>
 <%end%>

@@ -168,6 +168,7 @@ div.menu,
 	margin-top: 20px;
 	background: #fff;
 	padding: 0 20px;
+	-moz-border-radius:10px;
 }
 
 /* Structure the footer area */
@@ -336,7 +337,7 @@ a:hover {
 -------------------------------------------------------------- */
 
 #header {
-	padding: 30px 0 0 0;
+	padding: 10px 0 0 0;
 }
 #site-title {
 	float: left;
@@ -361,11 +362,10 @@ a:hover {
 /* This is the custom header image */
 #branding img {
 	clear: both;
-	border-top: 4px solid #000;
 	display: block;
-	border-bottom: 1px solid #000;
+	/*border-top: 4px solid #000;
+	border-bottom: 1px solid #000;*/
 }
-
 
 
 /* =Menu
@@ -454,7 +454,7 @@ div.menu li {
 
 #main {
 	overflow: hidden;
-	padding: 40px 0 0 0;
+	padding: 20px 0 0 0;
 }
 #content {
 	margin-bottom: 36px;
@@ -858,7 +858,10 @@ div.menu li {
 	display: none;
 }
 
-
+img.login {
+	display: inline;
+	float: right;
+}
 
 /* =Navigation
 -------------------------------------------------------------- */
