@@ -13,9 +13,9 @@ class Universidad < ActiveRecord::Base
   validates_attachment_content_type :logo, :content_type => ['image/jpeg', 'image/png','image/gif']
   
   
-  def self.search(search)
-  if search
-    find(:all, :conditions => ['nombre LIKE ?', "%#{search}%"])
+  def self.search(term)
+  if term
+    find(:all, :conditions => ['nombre LIKE ?', "%#{term}%"])
   else
     find(:all)
   end

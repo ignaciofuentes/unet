@@ -1,14 +1,11 @@
 class UniversidadesController < ApplicationController
-  # GET /universidades
-  # GET /universidades.xml
- # skip_before_filter :require_user, :only => [:index, :show]
 filter_resource_access
+
   def index
     @universidades = Universidad.search(params[:term])
   end
 
-  # GET /universidades/1
-  # GET /universidades/1.xml
+  
   def show
     @universidad = Universidad.find(params[:id])
 
@@ -18,8 +15,6 @@ filter_resource_access
     end
   end
 
-  # GET /universidades/new
-  # GET /universidades/new.xml
   def new
     @universidad = Universidad.new
 
@@ -29,13 +24,10 @@ filter_resource_access
     end
   end
 
-  # GET /universidades/1/edit
   def edit
     @universidad = Universidad.find(params[:id])
   end
   
-  # POST /universidades
-  # POST /universidades.xml
   def create
     @universidad = Universidad.new(params[:universidad])
 
@@ -51,8 +43,6 @@ filter_resource_access
     end
   end
 
-  # PUT /universidades/1
-  # PUT /universidades/1.xml
   def update
     @universidad = Universidad.find(params[:id])
 
@@ -68,8 +58,6 @@ filter_resource_access
     end
   end
 
-  # DELETE /universidades/1
-  # DELETE /universidades/1.xml
   def destroy
     @universidad = Universidad.find(params[:id])
     @universidad.destroy

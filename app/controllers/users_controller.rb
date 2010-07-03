@@ -1,13 +1,10 @@
 class UsersController < ApplicationController
 filter_resource_access
-def index
-@usuarios = User.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @usuarios }
-    end
+def index
+@usuarios = User.search(params[:term])
 end
+
   def new    
   end
   

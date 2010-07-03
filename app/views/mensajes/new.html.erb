@@ -1,3 +1,13 @@
+<%content_for :head do%>
+<script type="text/javascript">
+	$(function() {
+		$("#mensaje_receptor_login").autocomplete({
+			source: "../usuarios.json",
+			minLength: 1
+		});
+	});
+	</script>
+	<% end %>
 <h1>New mensaje</h1>
 <%=@login%>
 <% form_for @mensaje do |f| %>
