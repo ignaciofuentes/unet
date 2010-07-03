@@ -8,11 +8,11 @@
     <%= f.text_field :titulo %>
   </p>
   <p>
-    <%= f.label :descripcion %><br />
-    <%= f.text_area :descripcion %>
+    <%= f.label "descripcion_editor", "Descripcion" %><br />
+    <%= f.cktext_area :descripcion, :language => 'es'%>	
   </p>
   <p>
-    <%= f.label :fecha %><br />
+    <strong>Fecha</strong><br />
     <%= f.date_select :fecha %>
   </p>
   <p>
