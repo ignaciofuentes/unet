@@ -4,7 +4,7 @@ class UniversidadesController < ApplicationController
  # skip_before_filter :require_user, :only => [:index, :show]
 filter_resource_access
   def index
-    @universidades = Universidad.all
+    @universidades = Universidad.search(params[:term])
   end
 
   # GET /universidades/1
