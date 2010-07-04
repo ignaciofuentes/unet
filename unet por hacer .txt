@@ -20,3 +20,7 @@ Estudiantes envio de emails y cargas masivas
 Jquery ui con colores que cuadren
 
 Banner y logo unificado
+
+11:04 PM 7/3/2010
+
+agregar estudiantes al MENU
