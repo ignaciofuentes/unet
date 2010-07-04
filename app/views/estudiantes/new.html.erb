@@ -3,7 +3,7 @@
 	$(function() {
 		$("#estudiante_universidad_nombre").autocomplete({
 			source: "../universidades.json",
-			minLength: 2
+			minLength: 1
 		});
 	});
 	</script>
@@ -19,7 +19,7 @@
   </p>
   <p>
     <%= f.label :inicial_segundo %><br />
-    <%= f.text_field :inicial_segundo %>
+    <%= f.text_field :inicial_segundo, :size=>1, :maxlength=>1 %>
   </p>
   <p>
     <%= f.label :apellido %><br />
