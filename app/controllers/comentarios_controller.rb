@@ -28,7 +28,8 @@ class ComentariosController < ApplicationController
         format.html { redirect_to @comentable }
         format.xml  { render :xml => @comentario, :status => :created, :location => @comentario }
       else
-        format.html { render :action => "new" }
+        format.html { flash[:notice] = "No se pudo añadir el comentario"
+           redirect_to @comentable }
         format.xml  { render :xml => @comentario.errors, :status => :unprocessable_entity }
       end
     end
