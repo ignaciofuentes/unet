@@ -143,7 +143,9 @@
 	<div id="main">
 		<div id="container" role="main">
 			<div id="content">
-			<p class="notice"><%=flash[:notice]%></p>
+			<% flash.each do |key,msg|%>
+				<%= content_tag :div, msg, :class => key %>
+			<% end %>
 				<%= yield %>
 			</div>	
 		</div>
