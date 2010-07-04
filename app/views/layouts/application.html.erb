@@ -34,96 +34,7 @@
 
 				</div><!-- #branding -->
 
-				<div id="access" role="navigation">
-					<div class="skip-link screen-reader-text">
-						<a href="#content"title="Skip to content">Skip to content</a>
-					</div>
-					<div class="menu-header">
-						<ul id="menu-menu-principal"class="menu">
-							<li id="menu-item-37" class="menu-item menu-item-type-custom">
-								<%=link_to "Actividades", actividades_url()%>
-								<ul class="sub-menu">
-									<% if permitted_to? :create, Actividad.new %>				
-									<li id="menu-item-38" class="menu-item menu-item-type-post_type">
-										<%=link_to "Nueva", new_actividad_url()%></li>
-									<%end%>
-								</ul>
-							</li>
-
-							<li id="menu-item-40" class="menu-item menu-item-type-post_type">
-								<%=link_to "Noticias", noticias_url()%>
-									<ul class="sub-menu">
-										<% if permitted_to? :create, Noticia.new %>				
-											<li id="menu-item-41" class="menu-item menu-item-type-post_type">
-											<%=link_to "Nueva", new_noticia_url()%></li>
-										<%end%>
-									</ul>
-							</li>
-							<li id="menu-item-43" class="menu-item menu-item-type-post_type">
-								<%=link_to "Grupos Estudiantiles", grupos_estudiantiles_url()%></li>
-									<ul class="sub-menu">
-										<% if permitted_to? :create, GrupoEstudiantil.new %>				
-											<li id="menu-item-44" class="menu-item menu-item-type-post_type">
-											<%=link_to "Nuevo", new_grupo_estudiantil_url()%></li>
-										<%end%>
-									</ul>
-							</li>
-							<li id="menu-item-46" class="menu-item menu-item-type-post_type">
-								<a href="#">Mensajes</a>
-									<ul class="sub-menu">
-										<% if permitted_to? :create, Mensaje.new %>				
-											<li id="menu-item-47" class="menu-item menu-item-type-post_type">
-												<%=link_to "Nuevo", new_mensaje_url()%></li>
-										<%end%>
-										<% if permitted_to? :index %>
-											<li id="menu-item-48" class="menu-item menu-item-type-post_type">
-												<%=link_to "Enviados", mensajes_path({:bandeja=>"Enviados"})%></li>
-											<li id="menu-item-70" class="menu-item menu-item-type-post_type">
-												<%=link_to "Recibidos", mensajes_path({:bandeja=>"Recibidos"})%></li>
-										<%end%>
-									</ul>
-							</li>
-							<li id="menu-item-49" class="menu-item menu-item-type-post_type">
-								<a href="#">Foro</a>
-									<ul class="sub-menu">
-										<% if permitted_to? :create, Actividad.new %>				
-											<li id="menu-item-50" class="menu-item menu-item-type-post_type">
-												<%=link_to "Nueva", new_actividad_url()%></li>
-										<%end%>
-										<% if permitted_to? :edit, Actividad.new %>
-											<li id="menu-item-51" class="menu-item menu-item-type-post_type">
-												<%=link_to "Lista", actividades_url()%></li>
-										<%end%>
-									</ul>
-							</li>
-							<li id="menu-item-52" class="menu-item menu-item-type-post_type">
-								<%=link_to "Universidades", universidades_url()%></li>
-									<ul class="sub-menu">
-										<% if permitted_to? :create, Universidad.new %>				
-											<li id="menu-item-53" class="menu-item menu-item-type-post_type">
-												<%=link_to "Nueva", new_universidad_path()%></li>
-										<%end%>
-																			
-									</ul>
-							</li>
-							<li id="menu-item-55" class="menu-item menu-item-type-post_type">
-								<a href="#">Usuarios</a>
-									<ul class="sub-menu">
-										<% if permitted_to? :create, User.new %>				
-											<li id="menu-item-56" class="menu-item menu-item-type-post_type">
-												<%=link_to "Nuevo", new_user_path()%></li>
-										<%end%>
-										<% if permitted_to? :index, User.new %>
-											<li id="menu-item-57" class="menu-item menu-item-type-post_type">
-												<%=link_to "Editar", users_path()%></li>
-										<%end%>
-									</ul>
-							</li>
-						</ul>
-					</div>
-				</div><!-- #access -->
-			</div><!-- #masthead -->
-		</div><!-- #header -->
+<%= render :partial => "layouts/navbar" %>
 
 	<div id="main">
 		<div id="container" role="main">
@@ -136,7 +47,7 @@
 		</div>
 		<div id="primary" class="widget-area" role="complimentary">
 			<p>Esto es el widget area</p>
-			</div>
+		</div>
 	</div>
 	
 	<div id="footer">
