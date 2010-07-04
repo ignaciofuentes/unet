@@ -1,33 +1,3 @@
 <h1>Editar Grupo Estudiantil</h1>
 
-<% form_for @grupo_estudiantil, :html =>{ :multipart =>true } do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </p>
-  <p>
-  <%= f.label :descripcion %><br />
-<%=f.tinymce :descripcion%>  
-  </p>
-   <p>
-	<%=image_tag @grupo_estudiantil.logo.url(:small)%>
-	<br />
-<%=f.file_field :logo%>  
-  </p>
-  <p>
-    <%= f.label :ano %><br />
-    <%= f.text_field :ano %>
-  </p>
-  <p>
-    <%= f.label :universidad_id %><br />
-    <%=f.collection_select(:universidad_id,Universidad.all,:id, :nombre) %>
-  </p>
-  <p>
-    <%= f.submit 'Actualizar' %>
-  </p>
-<% end %>
-
-<%= link_to 'Ver', @grupo_estudiantil %> |
-<%= link_to 'Listado', grupos_estudiantiles_path %>
+<%= render :partial => "form", :locals => { :button_label => "Actualizar Grupo Estudiantil", :logo=>"existe"} %>

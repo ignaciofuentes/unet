@@ -1,0 +1,30 @@
+<% form_for @grupo_estudiantil, :html =>{ :multipart =>true, :class=>"form" } do |f| %>
+<%= f.error_messages %>
+
+<p>
+	<%= f.label :nombre %>
+	<%= f.text_field :nombre %>
+</p>
+<% if defined? (logo)%>
+	<%=image_tag @grupo_estudiantil.logo.url(:small)%>
+<%end%>
+<p>
+	<%= f.label :logo %>
+	<%=f.file_field :logo%>  
+</p>
+<p>
+	<%= f.label :ano %>
+	<%= f.text_field :ano %>
+</p>
+<p>
+	<%= f.label :universidad_id %>
+	<%=f.collection_select(:universidad_id,Universidad.all,:id, :nombre) %>
+</p>
+<p>
+	<%= f.label "descripcion_editor", "Descripcion" %><br />
+	<%= f.cktext_area :descripcion, :language => 'es'%>	 
+</p>
+<p>
+	<%= f.submit button_label %>
+</p>
+<% end %>

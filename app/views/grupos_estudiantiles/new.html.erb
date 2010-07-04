@@ -1,30 +1,6 @@
+<content_for :head do>
+<%= javascript_include_tag :ckeditor %>
+<end>
 <h1>Nuevo Grupo Estudiantil</h1>
 
-<% form_for @grupo_estudiantil,:html =>{ :multipart =>true } do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </p>
-    <p>
-  <%= f.label :logo %><br />
-<%=f.file_field :logo%>  
-  </p>
-  <p>
-  <%= f.label :descripcion %><br />
-<%=f.tinymce :descripcion%>  
-  </p>
-  <p>
-    <label for="grupo_estudiantil_ano">Año</label><br />
-    <%= f.text_field :ano %>
-  </p>
-  <p>
-    <%= f.label :universidad_id %><br />
-    <%=f.collection_select(:universidad_id,Universidad.all,:id, :nombre) %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', grupos_estudiantiles_path %>
+<%= render :partial => "form", :locals => { :button_label => "Añadir Grupo Estudiantil"} %>

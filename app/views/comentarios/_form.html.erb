@@ -1,0 +1,15 @@
+<% form_for [object, Comentario.new],:html => {:class =>"commentform"} do |f|%>
+<p>
+	<%= f.label :autor%><span class ="required">*</span>
+	<%= f.text_field :autor %><br />
+</p>
+<p>
+	<%= f.label :email%><span class ="required">*</span>
+	<%= f.text_field :email%><br />
+</p>
+<p class="comment-form-comment">
+	<%= f.label :texto%><span class ="required">*</span>
+	<%= f.text_area :texto%><br />
+</p>
+<p class="form-submit"><%= f.submit button_label%></p>
+<% end %>

@@ -1,0 +1,19 @@
+<% form_for @noticia,:html=>{:class=>"form"} do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :titulo %>
+    <%= f.text_field :titulo %>
+  </p>
+<p>
+    <%= f.label :grupo_estudiantil_id %>
+    <%=f.collection_select(:grupo_estudiantil_id,GrupoEstudiantil.all,:id, :nombre) %>
+  </p>
+  <p>
+    <%= f.label "descripcion_editor", "Descripcion" %><br />
+    <%= f.cktext_area :descripcion, :language => 'es'%>	
+  </p>
+  <p>
+    <%= f.submit button_label %>
+  </p>
+<% end %>

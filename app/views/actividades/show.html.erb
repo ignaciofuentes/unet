@@ -5,20 +5,7 @@
 		<%= render :partial =>@actividad.comentarios%>
 		<div id="respond">
 			<h3 class= "reply-title">Nuevo Comentario</h2>
-				<% form_for [@actividad, Comentario.new],:html => {:class =>"commentform"} do |f|%>
-				<p>
-					<%= f.label :autor%><span class ="required">*</span>
-					<%= f.text_field :autor %><br />
-				</p>
-				<p>
-					<%= f.label :email%><span class ="required">*</span>
-					<%= f.text_field :email%><br />
-				</p>
-				<p class="comment-form-comment">
-				<%= f.label :texto%><span class ="required">*</span>
-				<%= f.text_area :texto%><br />
-			</p>
-			<p class="form-submit"><%= f.submit "Enviar"%></p>
-		<% end %>
+				<%= render :partial => "comentarios/form",
+				 :locals => { :button_label => "Enviar", :object => @actividad } %>
 		</div>
 </div>

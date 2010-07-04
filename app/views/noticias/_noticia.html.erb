@@ -1,14 +1,18 @@
 <% div_for noticia do %>
-<h3><%= link_to noticia.titulo, noticia %></h3>
-<% if permitted_to? :edit, noticia %>
-<%= link_to 'Editar', edit_noticia_path(noticia) %> |
-<%= link_to 'Eliminar', noticia, :confirm => 'Esta seguro?', :method => :delete %>
-<%end%>
-<div>
-<%= noticia.descripcion %>
+<h2 class="entry-title"><%= link_to noticia.titulo, noticia %></h3>
+	<div class="entry-meta">
+	<% if permitted_to? :edit, noticia %>
+		<%= link_to 'Editar', edit_noticia_path(noticia) %> |
+		<%= link_to 'Eliminar', noticia, :confirm => 'Esta seguro?', :method => :delete %>
+		<%end%>
+	</div>
+	<div class ="entry-content">
+	<%= noticia.descripcion %>
 </div>
-<p>
-  <b>Grupo Estudiantil:</b>
-  <%=h noticia.grupo_estudiantil.nombre %>
-</p>
+<div class="entry-utility">
+	<p>
+		<b>Grupo Estudiantil:</b>
+		<%=link_to noticia.grupo_estudiantil.nombre, noticia.grupo_estudiantil %>
+	</p>
+</div>
 <%end%>

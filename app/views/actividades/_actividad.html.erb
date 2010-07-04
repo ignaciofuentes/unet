@@ -1,23 +1,23 @@
 <% div_for actividad do %>
-<h2 class="entry-title"><%= link_to actividad.titulo, actividad, :class => "entry-title" %></h2>
+<h2 class="entry-title"><%= link_to actividad.titulo, actividad %></h2>
 <div class="entry-meta">
 <%=h actividad.fecha%>
 <% if permitted_to? :edit, actividad %>
-<%= link_to 'Editar', edit_actividad_path(actividad) %> |
-<%= link_to 'Eliminar', actividad, :confirm => 'Esta seguro?', :method => :delete %>
-<%end%>
+	<%= link_to 'Editar', edit_actividad_path(actividad) %> |
+	<%= link_to 'Eliminar', actividad, :confirm => 'Esta seguro?', :method => :delete %>
+	<%end%>
 </div>
 <div class ="entry-content">
 <%= actividad.descripcion %>
 </div>
 <div class="entry-utility">
-<p>
-  <b>Direccion:</b>
-  <%=h actividad.direccion %>
-	<span class="meta-sep">|</span>
-  <b>Grupo Estudiantil:</b>
+	<p>
+		<b>Direccion:</b>
+		<%=h actividad.direccion %>
+		<span class="meta-sep">|</span>
+		<b>Grupo Estudiantil:</b>
 
-  <%=link_to actividad.grupo_estudiantil.nombre, actividad.grupo_estudiantil %>
-</p>
+		<%=link_to actividad.grupo_estudiantil.nombre, actividad.grupo_estudiantil %>
+	</p>
 </div>
 <%end%>

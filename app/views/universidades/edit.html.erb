@@ -1,38 +1,7 @@
+<content_for :head do>
+<%= javascript_include_tag :ckeditor %>
+<end>
 <h2>Editar <%=@universidad.nombre%></h2>
-<div class="span-18">
-<% form_for @universidad, :html =>{ :multipart =>true } do |f| %>
-<div class="span-12">
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </p>
-   <p>
-  <%= f.label :descripcion %><br />
-<%=f.tinymce :descripcion%>  
-  </p>
-  </div>
-  <div class="span-6 last">
-  <p>
-    <%= f.label :direccion %><br />
-    <%= f.text_field :direccion %>
-  </p>
-  <p>
-    <%= f.label :estado_id %><br />
-	<%=f.collection_select(:estado_id,Estado.all,:id, :nombre)%>
-  </p>
-      <p>
-	<%=image_tag @universidad.logo.url(:small)%>
-	<br />
-<%=f.file_field :logo%>  
-  </p>
-  </div>
-  <div class="span-18">
-  <p>
-    <%= f.submit 'Actualizar' %>
-  </p>
-<%= link_to 'Ver', @universidad %> |
-<%= link_to 'Back', universidades_path %>
-</div>
-  <% end %>
-  </div>
+
+<%= render :partial => "form", :locals => { :button_label => "Actualizar Universidad", :logo=>"existe"} %>
+
