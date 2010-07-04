@@ -12,7 +12,7 @@ ActionController::Routing::Routes.draw do |map|
     map.login "login", :controller => "user_sessions", :action => "new"
     map.logout "logout", :controller => "user_sessions", :action => "destroy"
     map.registro "registro", :controller =>"users", :action=>"new"
-    map.resources :grupos_estudiantiles, :path_names => { :new => 'nueva', :edit => 'editar' }
+    map.resources :grupos_estudiantiles, :path_names => { :new => 'nuevo', :edit => 'editar' }
     map.resources :universidades, :path_names => { :new => 'nueva', :edit => 'editar' }
     map.resources :actividades, :has_many => :comentarios, :path_names => { :new => 'nueva', :edit => 'editar' }
     map.resources :noticias, :has_many => :comentarios, :path_names => { :new => 'nueva', :edit => 'editar' }
