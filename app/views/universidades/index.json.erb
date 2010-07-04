@@ -1,4 +1,7 @@
-<% @universidades.each do |universidad| %>
-json='['
-<% end %>
-[ { "id": "Tachybaptus ruficollis", "label": "Little <em>Grebe</em>", "value": "Little Grebe" }, { "id": "Ixobrychus minutus", "label": "Little Bittern", "value": "Little Bittern" }, { "id": "Sternula albifrons", "label": "Little Tern", "value": "Little Tern" }, { "id": "Athene noctua", "label": "Little Owl", "value": "Little Owl" }, { "id": "Larus minutus", "label": "Little Gull", "value": "Little Gull" }, { "id": "Egretta garzetta", "label": "Little Egret", "value": "Little Egret" }, { "id": "Calidris minuta", "label": "Little Stint", "value": "Little Stint" }, { "id": "Emberiza pusilla", "label": "Little Bunting", "value": "Little Bunting" }, { "id": "Alle alle", "label": "Little Auk", "value": "Little Auk" }, { "id": "Tetrax tetrax", "label": "Little Bustard", "value": "Little Bustard" }, { "id": "Porzana parva", "label": "Little Crake", "value": "Little Crake" }, { "id": "Charadrius dubius", "label": "Little Ringed Plover", "value": "Little Ringed Plover" } ]
+<%=
+'[' + (
+   @universidades.map do |u|
+     %Q[{ "id": "#{u.nombre}" , "label": "#{u.nombre}" , "value": "#{u.nombre}" }]
+   end.join(',')
+) + ']'
+%>

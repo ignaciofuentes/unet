@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
   has_many :mensajes_enviados, :class_name => 'Mensaje', :foreign_key => 'emisor_id'
   has_many :assignments
   has_many :roles, :through =>:assignments
+  
+  def self.search(term)
+  if term
+    find(:all, :conditions => ['nombre LIKE ?', "%#{term}%"])
+  else
+    find(:all)
+  end
+end
 
   def active?
     active

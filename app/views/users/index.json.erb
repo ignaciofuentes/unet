@@ -1,0 +1,7 @@
+<%=
+'[' + (
+   @usuarios.map do |u|
+     %Q[{ "id": "#{u.login}" , "label": "#{u.login}" , "value": "#{u.login}" }]
+   end.join(',')
+) + ']'
+%>

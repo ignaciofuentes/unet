@@ -1,7 +1,7 @@
 <%content_for :head do%>
 <script type="text/javascript">
 	$(function() {
-		$("#estudiante_universidad_id").autocomplete({
+		$("#estudiante_universidad_nombre").autocomplete({
 			source: "../universidades.json",
 			minLength: 2
 		});
@@ -30,8 +30,8 @@
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :universidad_id %><br />
-    <%= f.text_field :universidad_id %>
+    <%= f.label :universidad_nombre %><br />
+    <%= f.text_field :universidad_nombre %>
   </p>
   <p>
     <%= f.label :telefono %><br />
