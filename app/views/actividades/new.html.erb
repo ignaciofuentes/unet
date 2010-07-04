@@ -1,32 +1,42 @@
 <content_for :head do>
 <%= javascript_include_tag :ckeditor %>
+<script type = "text/javascript">
+$(function(){
+	$("#actividad_fecha").datepicker({
+				changeMonth: true,
+				changeYear: true
+			});
+});
+</script>
 <end>
 
 <h1>Nueva Actividad</h1>
 
-<% form_for(@actividad) do |f| %>
+<% form_for @actividad,"",:html=>{:class=>"form"} do |f| %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :titulo %><br />
+    <%= f.label :titulo %>
     <%= f.text_field :titulo %>
+  </p>
+<p>
+      <%= f.label :fecha %>
+    <%= f.text_field :fecha %>
+  </p>
+<p>
+    <%= f.label :direccion %>
+    <%= f.text_field :direccion %>
+  </p>
+<p>
+    <%= f.label :grupo_estudiantil_id %>
+    <%=f.collection_select(:grupo_estudiantil_id,GrupoEstudiantil.all,:id, :nombre) %>
   </p>
   <p>
     <%= f.label "descripcion_editor", "Descripcion" %><br />
     <%= f.cktext_area :descripcion, :language => 'es'%>	
   </p>
-  <p>
-    <strong>Fecha</strong><br />
-    <%= f.date_select :fecha %>
-  </p>
-  <p>
-    <%= f.label :direccion %><br />
-    <%= f.text_field :direccion %>
-  </p>
-<p>
-    <%= f.label :grupo_estudiantil_id %><br />
-    <%=f.collection_select(:grupo_estudiantil_id,GrupoEstudiantil.all,:id, :nombre) %>
-  </p>
+  
+  
 
   <p>
     <%= f.submit 'Create' %>

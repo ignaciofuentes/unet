@@ -1,5 +1,5 @@
 <% div_for actividad do %>
-<h2 class="entry-title"><%= link_to actividad.titulo, actividad, :class => "entry_title" %></h2>
+<h2 class="entry-title"><%= link_to actividad.titulo, actividad, :class => "entry-title" %></h2>
 <div class="entry-meta">
 <%=h actividad.fecha%>
 <% if permitted_to? :edit, actividad %>

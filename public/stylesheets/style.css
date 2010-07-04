@@ -709,7 +709,14 @@ div.menu li {
 	padding: 0;
 }
 
-
+form.form label {
+	float: left;
+	margin: 0 0 5px;
+	padding: 3px 5px;
+	display: block;
+	text-align:left;
+	width: 150px;
+}
 
 /* Asides
 -------------------------------------------------------------- */
@@ -970,6 +977,7 @@ h3#comments-title {
 .comment-meta {
 	font-size: 12px;
 	margin: 0 0 18px 0;
+	color: #888888;
 }
 .comment-meta a:link,
 .comment-meta a:visited {
