@@ -8,38 +8,8 @@
 	});
 	</script>
 	<% end %>
-<h1>New estudiante</h1>
+<h1>Nuevo estudiante</h1>
 
-<% form_for(@estudiante) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </p>
-  <p>
-    <%= f.label :inicial_segundo %><br />
-    <%= f.text_field :inicial_segundo, :size=>1, :maxlength=>1 %>
-  </p>
-  <p>
-    <%= f.label :apellido %><br />
-    <%= f.text_field :apellido %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :universidad_nombre, "Universidad" %><br />
-    <%= f.text_field :universidad_nombre %>
-  </p>
-  <p>
-    <%= f.label :telefono %><br />
-    <%= f.text_field :telefono %>
-  </p>
-  <p>
-    <%= f.submit 'Create' %>
-  </p>
-<% end %>
+<%= render :partial => "form", :locals => { :button_label => "Añadir Estudiante"} %>
 
 <%= link_to 'Back', estudiantes_path %>
