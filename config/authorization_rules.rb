@@ -6,8 +6,8 @@ authorization do
   end
   
   role :master do
-  has_permission_on :users, :to=>[:index,:new, :show, :create, :destroy]  
-  has_permission_on :users, :to=>[:edit, :update] do
+  has_permission_on :users, :to=>[:index,:new, :show, :create]  
+  has_permission_on :users, :to=>[:edit, :update, :destroy] do
   if_attribute :grupo_estudiantil=> is {user.grupo_estudiantil}, :roles=> contains {Role.find_by_name("junior")}
   if_attribute :login=>is {user.login}
   end

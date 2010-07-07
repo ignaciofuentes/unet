@@ -729,8 +729,9 @@ form.form label {
 	width: 150px;
 }
 
-.notice {	
-	color:#68C315;
+.notice {
+	
+	padding: 0pt 0.7em; margin-top: 20px;
 }
 
 /* Asides
