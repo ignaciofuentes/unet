@@ -63,10 +63,12 @@ class ComentariosController < ApplicationController
     end
   end
   private
-def find_comentable
+
+  def find_comentable
   params.each do |name, value|
 	if name=~ /(.+)_id$/
-		return $1.classify.constantize.find(value)
+		return $1.pluralize.classify.constantize.find(value)
+		#esta linea antes era return $1.classify.constantize.find(value) pero la cambie por lo que lei aqui de que los nombres en singular no los maneja bien http://rails.rubyonrails.org/classes/ActiveSupport/Inflector.html#M000719
 		end
 		end
 		nil

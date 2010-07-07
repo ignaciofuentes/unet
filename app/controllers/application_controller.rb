@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
  # before_filter :require_user
   before_filter {|c| Authorization.current_user = c.current_user}
  before_filter :mailer_set_url_options
+ before_filter :prepare_for_mobile
   def mailer_set_url_options
      ActionMailer::Base.default_url_options[:host] = request.host_with_port
    end
@@ -35,5 +36,19 @@ class ApplicationController < ActionController::Base
     def redirect_back_or_default(default)
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
-    end    
+    end   
+		
+	def mobile_device?
+		if session[:mobile]
+			 session[:mobile]=="1"
+		else
+			request.user_agent =~ /Mobile|webOS/
+		end
+	end
+	helper_method :mobile_device?
+	def prepare_for_mobile
+		session[:mobile]=params[:mobile] if params[:mobile]
+		request.format = :mobile if mobile_device?
+	end
+	
 end

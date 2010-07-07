@@ -5,7 +5,7 @@ class ActividadesController < ApplicationController
 filter_resource_access
 
   def index
-    @actividades = Actividad.all(:order => "created_at DESC")
+    @actividades = Actividad.search(params[:search])
   end
 
   # GET /actividades/1

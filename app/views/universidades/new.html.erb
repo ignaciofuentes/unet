@@ -1,6 +1,6 @@
-<content_for :head do>
+<% content_for :head do %>  
 <%= javascript_include_tag :ckeditor %>
-<end>
+<% end %>
 <h1>Nueva universidad</h1>
 
 <%= render :partial => "form", :locals => { :button_label => "Añadir Universidad"} %>

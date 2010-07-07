@@ -1,3 +1,14 @@
+<%content_for :head do%>
+<script type="text/javascript">
+	$(function() {
+		$("#estudiante_universidad_nombre").autocomplete({
+			source: "<%=universidades_path(:format=> "json")%>",
+			minLength: 1
+		});
+	});
+	</script>
+	<% end %>
+
 <h1>Editing estudiante</h1>
 
 <% form_for(@estudiante) do |f| %>
@@ -20,8 +31,8 @@
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :universidad_id %><br />
-    <%= f.text_field :universidad_id %>
+    <%= f.label :universidad_nombre, "Universidad" %><br />
+    <%= f.text_field :universidad_nombre %>
   </p>
   <p>
     <%= f.label :telefono %><br />

@@ -1,6 +1,7 @@
 authorization do
   role :admin do 
-  has_permission_on :actividades,:noticias, :grupos_estudiantiles,:mensajes,:users, :universidades,
+  
+  has_permission_on :actividades,:noticias, :grupos_estudiantiles,:mensajes,:users, :universidades, :estudiantes,
    :to=>[:index,:new, :show, :create, :edit, :update, :destroy]  
   end
   
@@ -24,6 +25,6 @@ authorization do
   end
   
   role :guest do
-    has_permission_on :actividades, :universidades, :grupos_estudiantiles, :to=>[:index, :show] 
+    has_permission_on :actividades, :noticias, :universidades, :grupos_estudiantiles, :to=>[:index, :show] 
   end
 end

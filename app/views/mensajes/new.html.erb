@@ -2,7 +2,7 @@
 <script type="text/javascript">
 	$(function() {
 		$("#mensaje_receptor_login").autocomplete({
-			source: "../usuarios.json",
+			source: "<%=users_path(:format => "json")%>",
 			minLength: 1
 		});
 	});

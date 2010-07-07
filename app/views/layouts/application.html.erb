@@ -16,11 +16,9 @@
 	<div id="wrapper" class="hfeed">
 		<div id="header">
 			<div id="masthead">
-				<div id="branding" role="banner">
+				<div id="branding">
 					<h1 id="site-title">
-						<span>
-							<div><%=link_to  image_tag("unet-blanco.jpg", :size => "300x100"), root_path%></div>
-						</span>
+							<%=link_to  image_tag("unet-blanco.jpg", :size => "300x100"), root_path%>
 					</h1>
 					<div id="site-description">
 						<% if current_user %>
@@ -37,7 +35,7 @@
 <%= render :partial => "layouts/navbar" %>
 
 	<div id="main">
-		<div id="container" role="main">
+		<div id="container">
 			<div id="content">
 			<% flash.each do |key,msg|%>
 				<%= content_tag :div, msg, :class => key %>
@@ -45,7 +43,7 @@
 				<%= yield %>
 			</div>	
 		</div>
-		<div id="primary" class="widget-area" role="complimentary">
+		<div id="primary" class="widget-area">
 			<p>Esto es el widget area</p>
 		</div>
 	</div>

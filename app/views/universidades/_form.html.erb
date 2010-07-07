@@ -6,7 +6,9 @@
 	<%= f.text_field :nombre %>
 </p>
 <% if defined? (logo)%>
+<div>
 	<%=image_tag @universidad.logo.url(:small)%>
+	</div>
 <%end%>
 <p>
 	<%= f.label :logo %>

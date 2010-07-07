@@ -1,5 +1,11 @@
 <% content_for :head do%>
-<%=auto_discovery_link_tag :rss, formatted_actividades_path(:rss)%>
+<%=auto_discovery_link_tag :rss, actividades_path(:rss)%>
 <% end %>
 <h1>Actividades</h1>
+<% form_tag actividades_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Buscar", :name => nil %>
+  </p>
+<% end %>
 <%= render(:partial => @actividades)%>

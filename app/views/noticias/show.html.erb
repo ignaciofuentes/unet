@@ -1,10 +1,10 @@
 <%= render(:partial => @noticia)%>
 <hr />
 <div id="comments">
-	<h3 id="comments-title">Comentarios</h2>
+	<h3 id="comments-title">Comentarios</h3>
 		<%= render :partial =>@noticia.comentarios%>
 		<div id="respond">
-			<h3 class= "reply-title">Nuevo Comentario</h2>
+			<h3 class= "reply-title">Nuevo Comentario</h3>
 				<%= render :partial => "comentarios/form", 
 				:locals => { :button_label => "Enviar", :object => @noticia } %>
 		</div>

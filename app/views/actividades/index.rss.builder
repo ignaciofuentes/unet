@@ -9,8 +9,8 @@ xml.channel do
 		xml.item do
 			xml.title actividad.titulo
 			xml.description actividad.descripcion
-			xml.pubDate actividad.fecha.to_s(:rfc822)
-			xml.link actividad_url (actividad) 
+			xml.pubDate actividad.fecha
+			xml.link actividad_url(actividad) 
 		end
 	end
 	

@@ -1,17 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  nombre: MyString
-  inicial_segundo: 
-  apellido: MyString
-  email: MyString
+nacho:
+  nombre: Ignacio
+  inicial_segundo: A
+  apellido: Fuentes
+  email: nachi@gmail.com
   universidad_id: 1
-  telefono: MyString
+  telefono: 654654
 
-two:
-  nombre: MyString
-  inicial_segundo: 
-  apellido: MyString
-  email: MyString
-  universidad_id: 1
-  telefono: MyString

@@ -1,12 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
   
   
-  map.resources :estudiantes
+  map.resources :estudiantes, :path_names => {:new =>"nuevo", :edit => "editar"}
 
-  map.resources :wysihat_files
 
   
-    map.resources :mensajes
+    map.resources :mensajes, :path_names => {:new =>"nuevo", :edit => "editar"}
 
   
     map.login "login", :controller => "user_sessions", :action => "new"

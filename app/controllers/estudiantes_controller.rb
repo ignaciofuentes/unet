@@ -1,6 +1,7 @@
 class EstudiantesController < ApplicationController
   # GET /estudiantes
   # GET /estudiantes.xml
+  filter_resource_access
   def index
     @estudiantes = Estudiante.all
 
@@ -24,8 +25,6 @@ class EstudiantesController < ApplicationController
   # GET /estudiantes/new
   # GET /estudiantes/new.xml
   def new
-    @estudiante = Estudiante.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @estudiante }
@@ -34,13 +33,12 @@ class EstudiantesController < ApplicationController
 
   # GET /estudiantes/1/edit
   def edit
-    @estudiante = Estudiante.find(params[:id])
   end
 
   # POST /estudiantes
   # POST /estudiantes.xml
   def create
-    @estudiante = Estudiante.new(params[:estudiante])
+    
 
     respond_to do |format|
       if @estudiante.save
@@ -56,8 +54,6 @@ class EstudiantesController < ApplicationController
   # PUT /estudiantes/1
   # PUT /estudiantes/1.xml
   def update
-    @estudiante = Estudiante.find(params[:id])
-
     respond_to do |format|
       if @estudiante.update_attributes(params[:estudiante])
         format.html { redirect_to(@estudiante, :notice => 'Estudiante was successfully updated.') }
@@ -72,7 +68,6 @@ class EstudiantesController < ApplicationController
   # DELETE /estudiantes/1
   # DELETE /estudiantes/1.xml
   def destroy
-    @estudiante = Estudiante.find(params[:id])
     @estudiante.destroy
 
     respond_to do |format|

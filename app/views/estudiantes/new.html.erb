@@ -2,7 +2,7 @@
 <script type="text/javascript">
 	$(function() {
 		$("#estudiante_universidad_nombre").autocomplete({
-			source: "../universidades.json",
+			source: "<%=universidades_path(:format=> "json")%>",
 			minLength: 1
 		});
 	});
@@ -30,7 +30,7 @@
     <%= f.text_field :email %>
   </p>
   <p>
-    <%= f.label :universidad_nombre %><br />
+    <%= f.label :universidad_nombre, "Universidad" %><br />
     <%= f.text_field :universidad_nombre %>
   </p>
   <p>

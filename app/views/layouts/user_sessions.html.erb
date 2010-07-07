@@ -9,14 +9,13 @@
 	<%= stylesheet_link_tag 'style' %>
 	<%= stylesheet_link_tag 'css/ui-lightness/jquery-ui-1.8.2.custom' %>
 	<%= javascript_include_tag "js/jquery-1.4.2.min", "js/jquery-ui-1.8.2.custom.min", "application" %>
-	<%= javascript_include_tag :ckeditor %>
 	<%= yield :head %> 
 </head>
 <body class="home blog">
 	<div id="wrapper" class="hfeed">
 		<div id="header">
 			<div id="masthead">
-				<div id="branding" role="banner">
+				<div id="branding">
 					<p style="color: green"><%= flash[:notice] %></p>
 					<%= yield %>
 				</div>

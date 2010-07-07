@@ -1,5 +1,6 @@
 class Estudiante < ActiveRecord::Base
 	belongs_to :universidad
+	
 	 validates_presence_of :nombre
 	 validates_presence_of :apellido
 	 validates_presence_of :email
@@ -20,7 +21,7 @@ class Estudiante < ActiveRecord::Base
 	end
 	
 	def inicial_segundo_con_punto
-		"#{inicial_segundo}. " unless inicial_segundo.blank?
+		"#{inicial_segundo}." unless inicial_segundo.blank?
 	end
 	
 end

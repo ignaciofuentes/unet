@@ -1,0 +1,12 @@
+<% title "Actividades" %>
+
+<ul>
+  <% for actividad in @actividades %>
+    <li class="arrow">
+      <%= link_to h(actividad.titulo), actividad %>
+      <small class="counter">5</small>
+    </li>
+  <% end %>
+</ul>
+
+<ul><li class="arrow"><%= link_to "Nueva Actividad", new_actividad_path %></li></ul>

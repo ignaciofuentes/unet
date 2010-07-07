@@ -1,15 +1,18 @@
-<h1>Login</h1>
- <div><%=link_to  image_tag("unet-blanco.jpg", :size => "300x100", :class=> "login"), root_path%></div>
+<h1>Acceso</h1><br />
+<%=link_to  image_tag("unet-blanco.jpg", :size => "300x100", :class=> "login"), root_path%>
 <% form_for @user_session do |f| %>
   <%= f.error_messages %>
-  <%= f.label :login %><br />
+  <p><%= f.label :login %><br />
   <%= f.text_field :login %><br />
-  <br />
+  </p>
+  <p>
   <%= f.label :password %><br />
   <%= f.password_field :password %><br />
-  <br />
+  </p>
+  <p>
   <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
-  <br />
-  <%= f.submit "Login" %>
-	
+  </p>
+  <p>
+  <%= f.submit "Login" %>	
+  </p>
 <% end %>

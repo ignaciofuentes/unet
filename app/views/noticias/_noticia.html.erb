@@ -1,5 +1,5 @@
 <% div_for noticia do %>
-<h2 class="entry-title"><%= link_to noticia.titulo, noticia %></h3>
+<h2 class="entry-title"><%= link_to noticia.titulo, noticia %></h2>
 	<div class="entry-meta">
 	<% if permitted_to? :edit, noticia %>
 		<%= link_to 'Editar', edit_noticia_path(noticia) %> |
