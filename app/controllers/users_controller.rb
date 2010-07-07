@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 filter_resource_access
 
 def index
-@usuarios = User.search(params[:term])
+	@usuarios = User.search(params[:term])
 end
 
   def new    

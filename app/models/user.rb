@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   
   def self.search(term)
   if term
-    find(:all, :conditions => ['nombre LIKE ?', "%#{term}%"])
+    find(:all, :conditions => ['login LIKE ?', "%#{term}%"])
   else
     find(:all)
   end
@@ -46,12 +46,6 @@ def role_symbols
   end
 end
 
-
-def rol_debe_ser_igual_o_menor_al_del_creador
-  if(1==1)
-    errors.add(:roles, "No puede ser "+self.roles.first.name)
-  end
-end 
 
 	def grupo_estudiantil_nombre
 		grupo_estudiantil.nombre if grupo_estudiantil
