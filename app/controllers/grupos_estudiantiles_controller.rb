@@ -3,11 +3,6 @@ class GruposEstudiantilesController < ApplicationController
   # GET /grupos_estudiantiles.xml
   def index
     @grupos_estudiantiles = GrupoEstudiantil.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @grupos_estudiantiles }
-    end
   end
 
   # GET /grupos_estudiantiles/1

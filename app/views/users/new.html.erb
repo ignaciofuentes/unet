@@ -1,5 +1,11 @@
 <% content_for :head do%>
-
+<script type="text/javascript">
+	$(function() {
+		$("#user_grupo_estudiantil_nombre").autocomplete({
+			source: "<%=grupos_estudiantiles_path(:format => "json")%>"
+		});
+	});
+	</script>
 <% end %>
 
 <h1>Registro de Usuario</h1>
@@ -44,8 +50,8 @@
 <%= f.collection_select(:role_ids,Role.all,:id,:name) %><br />
 </p>
 <p>
-<%= f.label :grupo_estudiantil_id %><br />
-<%= f.collection_select(:grupo_estudiantil_id,GrupoEstudiantil.all, :id, :nombre) %>
+<%= f.label :grupo_estudiantil_nombre %><br />
+<%= f.text_field :grupo_estudiantil_nombre%>
 </p>
 <%end%>
   <p>

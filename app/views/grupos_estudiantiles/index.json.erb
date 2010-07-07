@@ -1,0 +1,7 @@
+<%=
+'[' + (
+   @grupos_estudiantiles.map do |g|
+     %Q[{ "id": "#{g.nombre}" , "label": "#{g.nombre}" , "value": "#{g.nombre}" }]
+   end.join(',')
+) + ']'
+%>
