@@ -17,8 +17,7 @@
 		<div id="header">
 			<div id="masthead">
 				<div id="branding">
-					<h1 id="site-title">
-							<%=link_to  image_tag("unet-blanco.jpg", :size => "300x100"), root_path%>
+		
 					</h1>
 					<div id="site-description">
 						<% if current_user %>
@@ -28,7 +27,7 @@
 						<%=link_to "Log in", login_path%>
 						<%end%>
 					</div>
-					<%=link_to  image_tag("path.jpg",:size => "940x198", :alt => "", :class =>"redondeado"), root_path%>
+					<%=link_to  image_tag("banner.png",:size => "940x198", :alt => "", :class =>"redondeado"), root_path%>
 
 				</div><!-- #branding -->
 
@@ -44,7 +43,8 @@
 			</div>	
 		</div>
 		<div id="primary" class="widget-area">
-			<p>Esto es el widget area</p>
+			<p><%= yield  :widget%></p>
+				<%=link_to  image_tag("p.png",:size => "200x589"), root_path%>
 		</div>
 	</div>
 	

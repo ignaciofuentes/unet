@@ -8,30 +8,30 @@
 					<%=link_to "Actividades", actividades_url()%>
 					<% if permitted_to? :create, Actividad.new %>
 					<ul class="sub-menu">										
-						<li id="menu-item-38" class="menu-item menu-item-type-post_type">
+						<li id="menu-item-38" class="menu-item menu-item-type-post_type ultimo">
 							<%=link_to "Nueva", new_actividad_url()%></li>						
 					</ul><%end%>
 				</li>
 
-				<li id="menu-item-40" class="menu-item menu-item-type-post_type">
+				<li id="menu-item-40" class="menu-item menu-item-type-custom">
 					<%=link_to "Noticias", noticias_url()%>
 					<% if permitted_to? :create, Noticia.new %>
 						<ul class="sub-menu">											
-								<li id="menu-item-41" class="menu-item menu-item-type-post_type">
+								<li id="menu-item-41" class="menu-item menu-item-type-post_type ultimo">
 								<%=link_to "Nueva", new_noticia_url()%></li>							
 						</ul>
 						<%end%>
 				</li>
-				<li id="menu-item-43" class="menu-item menu-item-type-post_type">
+				<li id="menu-item-43" class="menu-item menu-item-type-custom">
 					<%=link_to "Grupos Estudiantiles", grupos_estudiantiles_url()%>
 					<% if permitted_to? :create, GrupoEstudiantil.new %>
 						<ul class="sub-menu">											
-								<li id="menu-item-44" class="menu-item menu-item-type-post_type">
+								<li id="menu-item-44" class="menu-item menu-item-type-post_type ultimo">
 								<%=link_to "Nuevo", new_grupo_estudiantil_path%></li>							
 						</ul>
 						<%end%>
 				</li>
-				<li id="menu-item-46" class="menu-item menu-item-type-post_type">
+				<li id="menu-item-46" class="menu-item menu-item-type-custom">
 					<a href="#">Mensajes</a>
 						<ul class="sub-menu">
 							<% if permitted_to? :create, Mensaje.new %>				
@@ -41,41 +41,41 @@
 							<% if permitted_to? :index %>
 								<li id="menu-item-48" class="menu-item menu-item-type-post_type">
 									<%=link_to "Enviados", mensajes_path({:bandeja=>"Enviados"})%></li>
-								<li id="menu-item-70" class="menu-item menu-item-type-post_type">
+								<li id="menu-item-70" class="menu-item menu-item-type-post_type ultimo">
 									<%=link_to "Recibidos", mensajes_path({:bandeja=>"Recibidos"})%></li>
 							<%end%>
 						</ul>
 				</li>
-				<li id="menu-item-49" class="menu-item menu-item-type-post_type">
+				<li id="menu-item-49" class="menu-item menu-item-type-custom">
 					<a href="#">Foro</a>
 					<% if permitted_to? :create, Actividad.new %>
 						<ul class="sub-menu">											
 								<li id="menu-item-50" class="menu-item menu-item-type-post_type">
 									<%=link_to "Nueva", new_actividad_url()%></li>							
 							<% if permitted_to? :edit, Actividad.new %>
-								<li id="menu-item-51" class="menu-item menu-item-type-post_type">
+								<li id="menu-item-51" class="menu-item menu-item-type-post_type ultimo">
 									<%=link_to "Lista", actividades_url()%></li>
 							<%end%>							
 						</ul>
 						<%end%>
 				</li>
-				<li id="menu-item-52" class="menu-item menu-item-type-post_type">
+				<li id="menu-item-52" class="menu-item menu-item-type-custom">
 					<%=link_to "Universidades", universidades_url()%>
 					<% if permitted_to? :create, Universidad.new %>
 						<ul class="sub-menu">											
-								<li id="menu-item-53" class="menu-item menu-item-type-post_type">
+								<li id="menu-item-53" class="menu-item menu-item-type-post_type ultimo">
 									<%=link_to "Nueva", new_universidad_path()%></li>																							
 						</ul>
 						<%end%>
 				</li>
-				<li id="menu-item-55" class="menu-item menu-item-type-post_type">
+				<li id="menu-item-55" class="menu-item menu-item-type-custom">
 					<a href="#">Usuarios</a>
 					<% if permitted_to? :create, User.new %>
 						<ul class="sub-menu">											
 								<li id="menu-item-56" class="menu-item menu-item-type-post_type">
 									<%=link_to "Nuevo", new_user_path()%></li>							
 							<% if permitted_to? :index, User.new %>
-								<li id="menu-item-57" class="menu-item menu-item-type-post_type">
+								<li id="menu-item-57" class="menu-item menu-item-type-post_type ultimo">
 									<%=link_to "Editar", users_path()%></li>
 							<%end%>
 						</ul>

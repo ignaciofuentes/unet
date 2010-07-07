@@ -201,7 +201,7 @@ div.menu,
 
 /* Main global 'theme' and typographic styles  */
 body {
-	background: #f1f1f1;
+	background: #333333;
 }
 
 body,
@@ -448,6 +448,17 @@ div.menu li {
 * html #access ul li a:hover {
 	color:#fff;
 }
+
+li.menu-item-type-custom > a{
+-moz-border-radius-topleft:10px;
+-moz-border-radius-topright:10px;	
+}
+
+li.ultimo > a{
+-moz-border-radius-bottomleft:10px;
+-moz-border-radius-bottomright:10px;	
+}
+
 
 /* =Content
 -------------------------------------------------------------- */
@@ -716,6 +727,10 @@ form.form label {
 	display: block;
 	text-align:left;
 	width: 150px;
+}
+
+.notice {	
+	color:#68C315;
 }
 
 /* Asides
