@@ -37,7 +37,10 @@
 		<div id="container">
 			<div id="content">
 			<% if flash[:notice]%>
-			<%= content_tag :div , flash[:notice], :class =>"ui-state-highlight ui-corner-all notice"%>
+				<%= content_tag :div , flash[:notice], :class =>"ui-state-highlight ui-corner-all notice"%>
+			<% end %>
+			<% if flash[:error]%>
+				<%= content_tag :div , flash[:error], :class =>"ui-state-error ui-corner-all notice"%>
 			<% end %>
 				<%= yield %>
 			</div>	
