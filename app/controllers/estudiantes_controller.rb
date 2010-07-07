@@ -44,7 +44,9 @@ class EstudiantesController < ApplicationController
   # POST /estudiantes.xml
   def create
     
-
+      if !has_role? :admin
+          @estudiante.universidad = current_user.grupo_estudiantil.universidad
+      end
     respond_to do |format|
       if @estudiante.save
         format.html { redirect_to(@estudiante, :notice => 'Estudiante was successfully created.') }

@@ -1,26 +1,49 @@
+<% content_for :head do %>  
+<%= javascript_include_tag 'jquery.dataTables' %>  
+<%= stylesheet_link_tag 'demo_table_jui' %>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('#estudiantes').dataTable({
+	 "bJQueryUI": true,
+		"aoColumns": [
+			{"sWidth": "350px"},
+            null,
+            null,
+           { "bSortable": false, "sWidth": "70px" }
+        ],
+                     "oLanguage": {
+					 "sUrl": "dataTables.spanish.txt"
+			}           
+	});
+});
+</script>
+ <% end %>
 <h1>Listado estudiantes</h1>
 
-<table>
+<table id="estudiantes">
+<thead>
   <tr>
     <th>Nombre</th>
-    <th>Email</th>
     <th>Universidad</th>
     <th>Telefono</th>
+	<th></th>
   </tr>
-
-<% @estudiantes.each do |estudiante| %>
-  <tr>
-    <td><%=h estudiante.nombre_completo %></td>
-    <td><%=h estudiante.email %></td>
-    <td><%=h estudiante.universidad_nombre %></td>
-	<td><%=h estudiante.telefono %></td>
-    <td><%= link_to 'Show', estudiante %></td>
-    <td><%= link_to 'Edit', edit_estudiante_path(estudiante) %></td>
-    <td><%= link_to 'Destroy', estudiante, :confirm => 'Are you sure?', :method => :delete %></td>
+</thead>
+<tbody>
+	<% @estudiantes.each do |estudiante| %>
+	  <tr>
+	    <td><%=link_to estudiante.nombre_completo, estudiante %></td>
+	    <td><%=link_to estudiante.universidad_nombre, estudiante.universidad %></td>
+		<td><%=h estudiante.telefono %></td>
+    <td>
+	<%=link_authorized :edit, estudiante,'<span class="ui-icon ui-icon-pencil" title="Editar"></span>', edit_estudiante_path(estudiante)%> 
+	<%= link_authorized :destroy, estudiante, '<span class="ui-icon ui-icon-trash" title="Eliminar"></span>', estudiante %>
+	</td>
   </tr>
 <% end %>
+</tbody>
 </table>
-
 <br />
 
 <%= link_to 'New estudiante', new_estudiante_path %>
