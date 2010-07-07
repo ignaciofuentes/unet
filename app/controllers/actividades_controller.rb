@@ -34,11 +34,15 @@ filter_resource_access
   # POST /actividades
   # POST /actividades.xml
   def create
+    
     @actividad = Actividad.new(params[:actividad])
+     if !has_role? :admin
+        @actividad.grupo_estudiantil = current_user.grupo_estudiantil
+      end
 
     respond_to do |format|
       if @actividad.save
-        flash[:notice] = 'Actividad was successfully created.'
+        flash[:notice] = 'La actividad fue creada exitosamente'
         format.html { redirect_to(@actividad) }
         format.xml  { render :xml => @actividad, :status => :created, :location => @actividad }
       else
@@ -52,10 +56,12 @@ filter_resource_access
   # PUT /actividades/1.xml
   def update
     @actividad = Actividad.find(params[:id])
-
+     if !has_role? :admin
+        @actividad.grupo_estudiantil = current_user.grupo_estudiantil
+      end
     respond_to do |format|
       if @actividad.update_attributes(params[:actividad])
-        flash[:notice] = 'Actividad was successfully updated.'
+        flash[:notice] = 'La actividad fue actualizada exitosamente'
         format.html { redirect_to(@actividad) }
         format.xml  { head :ok }
       else

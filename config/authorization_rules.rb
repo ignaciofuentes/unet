@@ -12,7 +12,11 @@ authorization do
   if_attribute :login=>is {user.login}
   end
   has_permission_on :grupos_estudiantiles, :to=>[:index, :show] 
-  has_permission_on :actividades, :to=>[:index,:new, :show, :create, :edit, :update, :destroy]    
+  has_permission_on :actividades, :to=>[:index, :show, :new, :create]
+  has_permission_on :actividades, :to=>[:edit, :update, :destroy] do
+  if_attribute :grupo_estudiantil=> is {user.grupo_estudiantil}
+  end
+  has_permission_on :noticias, :to=>[:index,:new, :show, :create, :edit, :update, :destroy]     
   end
   
     role :junior do

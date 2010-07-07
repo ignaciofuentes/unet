@@ -6,7 +6,7 @@ class Actividad < ActiveRecord::Base
   if term
     find(:all, :conditions => ['titulo LIKE ?', "%#{term}%"], :order => "created_at DESC")
   else
-    find(:all)
+    find(:all,:order => "created_at DESC")
   end
 end
   

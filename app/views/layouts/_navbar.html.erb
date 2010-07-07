@@ -6,7 +6,7 @@
 			<ul id="menu-menu-principal"class="menu">
 				<li id="menu-item-37" class="menu-item menu-item-type-custom">
 					<%=link_to "Actividades", actividades_url()%>
-					<% if permitted_to? :create, Actividad.new %>
+					<% if permitted_to? :new, Actividad.new %>
 					<ul class="sub-menu">										
 						<li id="menu-item-38" class="menu-item menu-item-type-post_type ultimo">
 							<%=link_to "Nueva", new_actividad_url()%></li>						
