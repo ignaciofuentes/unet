@@ -4,8 +4,7 @@ class NoticiasController < ApplicationController
   filter_resource_access
   
   def index
-   @noticias = Noticia.all(:order => "created_at DESC")
-
+   @noticias = Noticia.search(params[:search])
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @noticias }
@@ -43,7 +42,9 @@ class NoticiasController < ApplicationController
   # POST /noticias.xml
   def create
     @noticia = Noticia.new(params[:noticia])
-
+      if !has_role? :admin
+          @noticia.grupo_estudiantil = current_user.grupo_estudiantil
+        end
     respond_to do |format|
       if @noticia.save
         format.html { redirect_to(@noticia, :notice => 'Noticia was successfully created.') }
@@ -59,7 +60,9 @@ class NoticiasController < ApplicationController
   # PUT /noticias/1.xml
   def update
     @noticia = Noticia.find(params[:id])
-
+     if !has_role? :admin
+          @noticia.grupo_estudiantil = current_user.grupo_estudiantil
+        end
     respond_to do |format|
       if @noticia.update_attributes(params[:noticia])
         format.html { redirect_to(@noticia, :notice => 'Noticia was successfully updated.') }

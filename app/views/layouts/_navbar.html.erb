@@ -72,15 +72,11 @@
 				</li>
 				<% if permitted_to? :index, User.new %>
 				<li id="menu-item-55" class="menu-item menu-item-type-custom">
-					<a href="#">Usuarios</a>
+					<%=link_to "Usuarios", users_url()%>
 					<% if permitted_to? :create, User.new %>
 						<ul class="sub-menu">											
-								<li id="menu-item-56" class="menu-item menu-item-type-post_type">
+								<li id="menu-item-56" class="menu-item menu-item-type-post_type ultimo">
 									<%=link_to "Nuevo", new_user_path()%></li>							
-							<% if permitted_to? :index, User.new %>
-								<li id="menu-item-57" class="menu-item menu-item-type-post_type ultimo">
-									<%=link_to "Editar", users_path()%></li>
-							<%end%>
 						</ul>
 						<%end%>
 				</li>
@@ -88,15 +84,11 @@
 				
 					<% if permitted_to? :index, Estudiante.new %>
 					<li id="menu-item-85" class="menu-item menu-item-type-custom">
-						<a href="#">Estudiantes</a>
+						<%=link_to "Estudiantes", estudiantes_url()%>
 						<% if permitted_to? :create, Estudiante.new %>
 							<ul class="sub-menu">											
-									<li id="menu-item-86" class="menu-item menu-item-type-post_type">
+									<li id="menu-item-86" class="menu-item menu-item-type-post_type ultimo">
 										<%=link_to "Nuevo", new_estudiante_path()%></li>							
-								<% if permitted_to? :index, Estudiante.new %>
-									<li id="menu-item-87" class="menu-item menu-item-type-post_type ultimo">
-										<%=link_to "Editar", estudiantes_path()%></li>
-								<%end%>
 							</ul>
 							<%end%>
 					</li>

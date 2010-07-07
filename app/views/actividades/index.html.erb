@@ -2,12 +2,12 @@
 	<%=auto_discovery_link_tag :rss, actividades_path(:rss)%>
 	<% end %>
 	<% content_for :widget do%>
-	<% form_tag actividades_path, :method => 'get' do %>
-	<p>
-		<%= submit_tag "Buscar", :name => nil %>
-		<%= text_field_tag :search, params[:search] %>
-	</p>
-	<% end %>
+		<% form_tag actividades_path, :method => 'get' do %>
+			<p>
+				<%= submit_tag "Buscar", :name => nil %>
+				<%= text_field_tag :search, params[:search] %>
+			</p>
+			<% end %>
 	<% end %>
 	<h1>Actividades</h1>
 

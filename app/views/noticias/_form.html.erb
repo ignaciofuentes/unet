@@ -5,10 +5,12 @@
     <%= f.label :titulo %>
     <%= f.text_field :titulo %>
   </p>
+<% if has_role? :admin%>
 <p>
     <%= f.label :grupo_estudiantil_id %>
     <%=f.collection_select(:grupo_estudiantil_id,GrupoEstudiantil.all,:id, :nombre) %>
   </p>
+<% end %>
   <p>
     <%= f.label "descripcion_editor", "Descripcion" %><br />
     <%= f.cktext_area :descripcion, :language => 'es'%>	

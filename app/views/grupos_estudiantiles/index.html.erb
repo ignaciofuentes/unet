@@ -38,7 +38,7 @@ $(document).ready(function() {
     <td><%=link_to grupo_estudiantil.nombre, grupo_estudiantil %></td>
 	<td><%=link_to image_tag (grupo_estudiantil.logo.url(:mini)), grupo_estudiantil %></td>
     <td><%=h grupo_estudiantil.ano %></td>
-    <td><%=h grupo_estudiantil.universidad.nombre %></td>
+    <td><%=link_to grupo_estudiantil.universidad.nombre, grupo_estudiantil.universidad %></td>
     <td>
 	<%=link_authorized :edit, grupo_estudiantil,'<span class="ui-icon ui-icon-pencil" title="Editar"></span>', edit_grupo_estudiantil_path(grupo_estudiantil)%> 
 	<%= link_authorized :destroy, grupo_estudiantil, '<span class="ui-icon ui-icon-trash" title="Eliminar"></span>', grupo_estudiantil %>

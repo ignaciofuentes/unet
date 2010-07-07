@@ -3,7 +3,12 @@ class EstudiantesController < ApplicationController
   # GET /estudiantes.xml
   filter_resource_access
   def index
-    @estudiantes = Estudiante.all
+    
+    if has_role? :admin
+      @estudiantes = Estudiante.all
+    else
+      @estudiantes = current_user.grupo_estudiantil.universidad.estudiantes
+    end
 
     respond_to do |format|
       format.html # index.html.erb
