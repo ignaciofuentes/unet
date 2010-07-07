@@ -53,4 +53,12 @@ def rol_debe_ser_igual_o_menor_al_del_creador
   end
 end 
 
+	def grupo_estudiantil_nombre
+		grupo_estudiantil.nombre if grupo_estudiantil
+	end
+	
+	def grupo_estudiantil_nombre=(nombre)
+		self.grupo_estudiantil=GrupoEstudiantil.find_by_nombre(nombre) unless nombre.blank?
+	end
+
 end
