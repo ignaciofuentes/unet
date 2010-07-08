@@ -1,6 +1,7 @@
 class TemasController < ApplicationController
   # GET /temas
   # GET /temas.xml
+filter_resource_access
   def index
     @temas = Tema.all
 
@@ -44,7 +45,7 @@ class TemasController < ApplicationController
 
     respond_to do |format|
       if @tema.save
-        format.html { redirect_to(@tema, :notice => 'Tema was successfully created.') }
+        format.html { redirect_to(@tema, :notice => 'El tema fue añadido exitosamente') }
         format.xml  { render :xml => @tema, :status => :created, :location => @tema }
       else
         format.html { render :action => "new" }
@@ -60,7 +61,7 @@ class TemasController < ApplicationController
 
     respond_to do |format|
       if @tema.update_attributes(params[:tema])
-        format.html { redirect_to(@tema, :notice => 'Tema was successfully updated.') }
+        format.html { redirect_to(@tema, :notice => 'El Tema se actualizo exitosamente') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

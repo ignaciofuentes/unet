@@ -1,4 +1,4 @@
-<h1>Listing temas</h1>
+<h1>Lista de Temas</h1>
 
 <table>
   <tr>
@@ -7,14 +7,14 @@
 
 <% @temas.each do |tema| %>
   <tr>
-    <td><%=h tema.nombre %></td>
-    <td><%= link_to 'Show', tema %></td>
-    <td><%= link_to 'Edit', edit_tema_path(tema) %></td>
+ 	 <td><%= link_to tema.nombre, tema %></td>
+<% if has_role? :admin%>
+	<td><%= link_to 'Editar', edit_tema_path(tema) %><td>
     <td><%= link_to 'Destroy', tema, :confirm => 'Are you sure?', :method => :delete %></td>
+<% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New tema', new_tema_path %>
+<%= link_authorized :new, Tema.new, 'Añadir tema', new_tema_path %>

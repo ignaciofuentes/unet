@@ -2,7 +2,7 @@ authorization do
 
   role :admin do 
 
-    has_permission_on :actividades,:noticias, :grupos_estudiantiles,:mensajes,:users, :universidades, :estudiantes,
+    has_permission_on :actividades,:noticias, :grupos_estudiantiles,:mensajes,:users, :universidades, :estudiantes, :temas, :comentarios,
     :to=>[:index,:new, :show, :create, :edit, :update, :destroy]  
   end
 
@@ -28,6 +28,8 @@ authorization do
       end
       
       has_permission_on :grupos_estudiantiles, :to=>[:index, :show] 
+      
+      has_permission_on :temas, :to=>[:index, :show] 
 
       has_permission_on :universidades, :to=>[:index, :show] 
 
@@ -45,10 +47,13 @@ authorization do
       has_permission_on :estudiantes, :to=>[:edit, :update, :destroy] do
         if_attribute :universidad=> is {user.grupo_estudiantil.universidad}
       end
+      
+      has_permission_on :comentarios, :to=>[:new, :create, :index, :show]
   end
 
   role :guest do
-    has_permission_on :actividades, :noticias, :universidades, :grupos_estudiantiles, :to=>[:index, :show] 
+    has_permission_on :actividades, :noticias, :universidades, :grupos_estudiantiles,:comentarios, :temas, :to=>[:index, :show] 
+    has_permission_on :comentarios, :to=>[:new, :create]
   end
 
 end

@@ -49,15 +49,11 @@
 				</li>
 					<%end%>
 				<li id="menu-item-49" class="menu-item menu-item-type-custom">
-					<a href="#">Foro</a>
-					<% if permitted_to? :create, Actividad.new %>
+					<%=link_to "Foro", temas_url()%>
+					<% if permitted_to? :create, Tema.new %>
 						<ul class="sub-menu">											
-								<li id="menu-item-50" class="menu-item menu-item-type-post_type">
-									<%=link_to "Nueva", new_actividad_url()%></li>							
-							<% if permitted_to? :edit, Actividad.new %>
-								<li id="menu-item-51" class="menu-item menu-item-type-post_type ultimo">
-									<%=link_to "Lista", actividades_url()%></li>
-							<%end%>							
+								<li id="menu-item-50" class="menu-item menu-item-type-post_type ultimo">
+									<%=link_to "Nuevo", new_tema_url()%></li>													
 						</ul>
 						<%end%>
 				</li>

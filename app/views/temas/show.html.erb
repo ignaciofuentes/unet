@@ -1,8 +1,13 @@
-<p>
-  <b>Nombre:</b>
+<h2>
+
   <%=h @tema.nombre %>
-</p>
+</h2>
 
-
-<%= link_to 'Edit', edit_tema_path(@tema) %> |
-<%= link_to 'Back', temas_path %>
+<div id="comments">
+		<%= render :partial =>@tema.comentarios%>
+		<div id="respond">
+			<h3 class= "reply-title">Nuevo Comentario</h3>
+				<%= render :partial => "comentarios/form",
+				 :locals => { :button_label => "Enviar", :object => @tema } %>
+		</div>
+</div>

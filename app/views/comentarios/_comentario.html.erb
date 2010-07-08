@@ -1,5 +1,18 @@
 <% div_for comentario do %>
+	<% if has_role? :admin%>
 	<hr />
+	<%if comentario.comentable_type == "Actividad" %>
+		<%= link_to "Borrar", actividad_comentario_path(comentario.comentable, comentario), :confirm=> "Esta seguro", :method=> :delete %>
+	<% end %>
+	<%if comentario.comentable_type == "Tema" %>
+		<%= link_to "Borrar", tema_comentario_path(comentario.comentable, comentario), :confirm=> "Esta seguro", :method=> :delete %>
+	<% end %>
+	<%if comentario.comentable_type == "Noticia" %>
+		<%= link_to "Borrar", noticia_comentario_path(comentario.comentable, comentario), :confirm=> "Esta seguro", :method=> :delete %>
+	<% end %>
+	
+	<% end%>
+	
 	<div class ="comment-author">
 	<cite class= "fn"><%=comentario.autor%></cite>
 	<span class= "says"> dice: </span>
