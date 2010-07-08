@@ -34,7 +34,7 @@ end
   def update
   parametros_de_usuarios_convencionales
     if @user.update_attributes(params[:user])
-      flash[:notice] = "Account updated!"
+      flash[:notice] = "Cuenta actualizada!"
       redirect_to users_path
     else
       render :action => :edit

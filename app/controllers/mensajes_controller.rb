@@ -3,9 +3,11 @@ class MensajesController < ApplicationController
   # GET /mensajes.xml
   def index
 	if params[:bandeja]=="Recibidos"
+	  @bandeja = "Recibidos"
     @mensajes = current_user.mensajes_recibidos
 	else
-	@mensajes = current_user.mensajes_enviados
+	  @bandeja = "Enviados"
+	  @mensajes = current_user.mensajes_enviados
 	end
     end
 
@@ -32,10 +34,6 @@ class MensajesController < ApplicationController
     end
   end
 
-  # GET /mensajes/1/edit
-  def edit
-    @mensaje = Mensaje.find(params[:id])
-  end
 
   # POST /mensajes
   # POST /mensajes.xml
@@ -43,30 +41,15 @@ class MensajesController < ApplicationController
     @mensaje = Mensaje.new(params[:mensaje])
     @mensaje.emisor=current_user
       if @mensaje.save
-        flash[:notice] = 'Mensaje was successfully created.' 
+        flash[:notice] = 'El Mensaje fue enviado exitosamente' 
 		redirect_to @mensaje
       else
-	  flash[:error] = 'Mensaje no se pudo enviar.'
+	  flash[:error] = 'El Mensaje no se pudo enviar.'
         render :action => "new"
     end
   end
 
-  # PUT /mensajes/1
-  # PUT /mensajes/1.xml
-  def update
-    @mensaje = Mensaje.find(params[:id])
-
-    respond_to do |format|
-      if @mensaje.update_attributes(params[:mensaje])
-        flash[:notice] = 'Mensaje was successfully updated.'
-        format.html { redirect_to(@mensaje) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @mensaje.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+ 
 
   # DELETE /mensajes/1
   # DELETE /mensajes/1.xml

@@ -42,7 +42,7 @@ class ComentariosController < ApplicationController
 
     respond_to do |format|
       if @comentario.update_attributes(params[:comentario])
-        format.html { redirect_to(@comentario, :notice => 'Comentario was successfully updated.') }
+        format.html { redirect_to(@comentario, :notice => 'El Comentario fue editado exitosamente') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

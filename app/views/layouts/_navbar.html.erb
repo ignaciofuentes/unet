@@ -33,7 +33,7 @@
 				</li>
 					<% if permitted_to? :create, Mensaje.new %>	
 				<li id="menu-item-46" class="menu-item menu-item-type-custom">
-					<a href="#">Mensajes</a>
+					<%=link_to "Mensajes", mensajes_path({:bandeja=>"Recibidos"})%>
 						<ul class="sub-menu">
 							<% if permitted_to? :create, Mensaje.new %>				
 								<li id="menu-item-47" class="menu-item menu-item-type-post_type">

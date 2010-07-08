@@ -49,7 +49,7 @@ class EstudiantesController < ApplicationController
       end
     respond_to do |format|
       if @estudiante.save
-        format.html { redirect_to(@estudiante, :notice => 'Estudiante was successfully created.') }
+        format.html { redirect_to(@estudiante, :notice => 'El Estudiante fue creado exitosamente') }
         format.xml  { render :xml => @estudiante, :status => :created, :location => @estudiante }
       else
         format.html { render :action => "new" }
@@ -63,7 +63,7 @@ class EstudiantesController < ApplicationController
   def update
     respond_to do |format|
       if @estudiante.update_attributes(params[:estudiante])
-        format.html { redirect_to(@estudiante, :notice => 'Estudiante was successfully updated.') }
+        format.html { redirect_to(@estudiante, :notice => 'El Estudiante fue editado exitosamente') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

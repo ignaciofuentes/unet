@@ -1,4 +1,9 @@
 <p>
+  <b>Emisor:</b>
+  <%=h @mensaje.emisor.login %>
+</p>
+
+<p>
   <b>Titulo:</b>
   <%=h @mensaje.titulo %>
 </p>
@@ -7,17 +12,3 @@
   <b>Contenido:</b>
   <%=h @mensaje.contenido %>
 </p>
-
-<p>
-  <b>Emisor:</b>
-  <%=h @mensaje.emisor_id %>
-</p>
-
-<p>
-  <b>Receptor:</b>
-  <%=h @mensaje.receptor_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_mensaje_path(@mensaje) %> |
-<%= link_to 'Back', mensajes_path %>

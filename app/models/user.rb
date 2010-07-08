@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   validates_attachment_size :photo,  :less_than => 5.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
   
-  has_many :mensajes_recibidos, :class_name => 'Mensaje', :foreign_key => 'receptor_id'
-  has_many :mensajes_enviados, :class_name => 'Mensaje', :foreign_key => 'emisor_id'
+  has_many :mensajes_recibidos, :class_name => 'Mensaje', :foreign_key => 'receptor_id', :order=> "created_at DESC"
+  has_many :mensajes_enviados, :class_name => 'Mensaje', :foreign_key => 'emisor_id', :order=> "created_at DESC"
   has_many :assignments
   has_many :roles, :through =>:assignments
   

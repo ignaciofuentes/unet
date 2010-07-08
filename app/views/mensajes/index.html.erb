@@ -1,27 +1,32 @@
 <%=link_to "Enviados", mensajes_path({:bandeja=>"Enviados"})%>|<%=link_to "Recibidos", mensajes_path({:bandeja=>"Recibidos"})%>
-<h1>Listing mensajes</h1>
+<h1>Mensajes <%= @bandeja%> </h1>
 
 <table>
   <tr>
-    <th>Titulo</th>
-    <th>Contenido</th>
-    <th>Emisor</th>
-    <th>Receptor</th>
+	<%if @bandeja == "Enviados"%>
+	<th>Para</th>
+	<% else %>
+	<th>De</th>
+	<% end %>
+	<th>Titulo</th>
+    <th>Fecha</th>
+
   </tr>
 
 <% @mensajes.each do |mensaje| %>
   <tr>
-    <td><%=h mensaje.titulo %></td>
-    <td><%=h mensaje.contenido %></td>
-    <td><%=h mensaje.emisor_id %></td>
-    <td><%=h mensaje.receptor_id %></td>
-    <td><%= link_to 'Show', mensaje %></td>
-    <td><%= link_to 'Edit', edit_mensaje_path(mensaje) %></td>
-    <td><%= link_to 'Destroy', mensaje, :confirm => 'Are you sure?', :method => :delete %></td>
+	<%if @bandeja == "Enviados"%>
+	 <td><%=link_to mensaje.receptor.login, mensaje %></td>
+	<% else%>
+	<td><%=link_to mensaje.emisor.login, mensaje %></td>
+	<% end%>  
+	<td><%= link_to mensaje.titulo, mensaje %></td>
+    
+    <td><%= mensaje.created_at%></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New mensaje', new_mensaje_path %>
+<%= link_to 'Nuevo mensaje', new_mensaje_path %>
