@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :temas
+
   
   
   map.resources :estudiantes, :path_names => {:new =>"nuevo", :edit => "editar"}

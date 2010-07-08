@@ -1,0 +1,16 @@
+<h1>Editing tema</h1>
+
+<% form_for(@tema) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tema %> |
+<%= link_to 'Back', temas_path %>

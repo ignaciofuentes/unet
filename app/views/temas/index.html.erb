@@ -1,0 +1,20 @@
+<h1>Listing temas</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+  </tr>
+
+<% @temas.each do |tema| %>
+  <tr>
+    <td><%=h tema.nombre %></td>
+    <td><%= link_to 'Show', tema %></td>
+    <td><%= link_to 'Edit', edit_tema_path(tema) %></td>
+    <td><%= link_to 'Destroy', tema, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tema', new_tema_path %>
