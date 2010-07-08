@@ -11,10 +11,6 @@ filter_resource_access
   # GET /actividades/1
   # GET /actividades/1.xml
   def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @actividad }
-    end
   end
 
   # GET /actividades/new

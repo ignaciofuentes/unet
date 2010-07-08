@@ -1,6 +1,6 @@
-<% form_for @project do |f| %>
+<% form_for @actividad do |f| %>
   <ul class="rounded">
-    <li><%= f.text_field :name, :placeholder => "Project Name" %></li>
+    <li><%= f.text_field :titulo, :placeholder => "Nombre de la actividad" %></li>
   </ul>
   <%= link_to "Submit", nil, :class => "whiteButton submit" %>
 <% end %>

@@ -1,10 +1,4 @@
-<% title @project.name %>
+<% title @actividad.titulo %>
 
-<h2>Tasks</h2>
-<ul>
-  <% for task in @project.tasks %>
-    <li class="arrow"><%= link_to h(task.name), edit_task_path(task) %></li>
-  <% end %>
-</ul>
+<%= @actividad.descripcion%>
 
-<ul><li class="arrow"><%= link_to "New Task", new_task_path(:project_id => @project) %></li></ul>
