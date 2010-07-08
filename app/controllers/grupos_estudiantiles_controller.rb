@@ -1,6 +1,8 @@
 class GruposEstudiantilesController < ApplicationController
   # GET /grupos_estudiantiles
   # GET /grupos_estudiantiles.xml
+  
+  filter_resource_access
   def index
     @grupos_estudiantiles = GrupoEstudiantil.all
   end

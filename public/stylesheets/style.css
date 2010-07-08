@@ -531,7 +531,7 @@ li.ultimo > a{
 }
 #content tr td {
 	border-top: 1px solid #e7e7e7;
-	padding: 6px 24px;
+	padding: 6px 10px;
 }
 #content tr.odd td {
 	background: #F2F7FC;

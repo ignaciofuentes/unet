@@ -8,7 +8,7 @@
 	});
 	</script>
 	<% end %>
-<h1>New mensaje</h1>
+<h1>Nuevo mensaje</h1>
 <%=@login%>
 <% form_for @mensaje do |f| %>
   <%= f.error_messages %>
@@ -26,8 +26,6 @@
   </p>
 
   <p>
-    <%= f.submit 'Create' %>
+    <%= f.submit 'Enviar' %>
   </p>
 <% end %>
-
-<%= link_to 'Back', mensajes_path %>

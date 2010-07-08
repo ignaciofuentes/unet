@@ -1,6 +1,6 @@
 class Noticia < ActiveRecord::Base
   belongs_to :grupo_estudiantil
-   has_many :comentarios, :as =>:comentable
+   has_many :comentarios, :as =>:comentable, :dependent => :destroy
 
    def self.search(term)
       if term

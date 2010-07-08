@@ -1,6 +1,8 @@
 class ComentariosController < ApplicationController
   # GET /comentarios
   # GET /comentarios.xml
+  
+  filter_resource_access
   def index
   @comentable= find_comentable
     @comentarios =@comentable.comentarios

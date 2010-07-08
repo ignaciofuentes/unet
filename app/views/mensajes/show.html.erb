@@ -1,14 +1,14 @@
 <p>
-  <b>Emisor:</b>
+  <h1><%=h @mensaje.titulo %></h1>
+</p>
+
+<p>
+  <b>De:</b>
   <%=h @mensaje.emisor.login %>
 </p>
 
 <p>
-  <b>Titulo:</b>
-  <%=h @mensaje.titulo %>
-</p>
-
-<p>
-  <b>Contenido:</b>
   <%=h @mensaje.contenido %>
 </p>
+
+ <%= link_to "Responder", new_mensaje_path({:receptor=>@mensaje.emisor.login}) %>

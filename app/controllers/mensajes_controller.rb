@@ -1,6 +1,7 @@
 class MensajesController < ApplicationController
   # GET /mensajes
   # GET /mensajes.xml
+  filter_resource_access
   def index
 	if params[:bandeja]=="Recibidos"
 	  @bandeja = "Recibidos"
