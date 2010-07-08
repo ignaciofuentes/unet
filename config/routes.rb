@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :temas
+  map.resources :temas, :as =>"foro"
 
   
   
