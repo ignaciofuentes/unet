@@ -1,0 +1,22 @@
+<h1>Listing juegos</h1>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+  </tr>
+
+<% @juegos.each do |juego| %>
+  <tr>
+    <td><%=h juego.nombre %></td>
+    <td><%=h juego.descripcion %></td>
+    <td><%= link_to 'Show', juego %></td>
+    <td><%= link_to 'Edit', edit_juego_path(juego) %></td>
+    <td><%= link_to 'Destroy', juego, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New juego', new_juego_path %>

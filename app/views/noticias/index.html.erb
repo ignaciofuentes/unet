@@ -1,6 +1,7 @@
 <% content_for :head do%>
 <%=auto_discovery_link_tag :rss, formatted_noticias_path(:rss)%>
-<% end %>
+<% 
+end %>
 <% content_for :widget do%>
 	<% form_tag noticias_path, :method => 'get' do %>
 		<p>

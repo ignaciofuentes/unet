@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100708020003) do
+ActiveRecord::Schema.define(:version => 20100713163744) do
 
   create_table "actividades", :force => true do |t|
     t.string   "titulo"
@@ -82,6 +82,13 @@ ActiveRecord::Schema.define(:version => 20100708020003) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+  end
+
+  create_table "juegos", :force => true do |t|
+    t.string   "nombre"
+    t.text     "descripcion"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "mensajes", :force => true do |t|
